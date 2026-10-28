@@ -1,0 +1,66 @@
+[
+  {
+    "selector": ".h3-hero-copy>p",
+    "color": "rgb(67, 94, 110)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "18px",
+    "text": "Find suppliers and buyers, manage sourcing requests, and organize your seafood business in one connected workspace.",
+    "ratio": 6.85
+  },
+  {
+    "selector": ".h3-steps p",
+    "color": "rgb(82, 108, 125)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "16px",
+    "text": "Find suppliers, buyers and specialist services by the criteria that matter to your business.",
+    "ratio": 5.53
+  },
+  {
+    "selector": ".h3-benefits p",
+    "color": "rgb(82, 108, 126)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "16px",
+    "text": "Review open requests and supplier responses without losing their commercial context.",
+    "ratio": 5.52
+  },
+  {
+    "selector": ".h3-pricing li",
+    "color": "rgb(62, 97, 118)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "16px",
+    "text": "Company discovery",
+    "ratio": 6.61
+  },
+  {
+    "selector": ".h3-preview-heading>div>span",
+    "color": "rgb(82, 111, 128)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "10px",
+    "text": "YOUR DAILY WORKSPACE",
+    "ratio": 5.32
+  },
+  {
+    "selector": ".h3-preview-row>div>span",
+    "color": "rgb(82, 110, 126)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "11px",
+    "text": "24,000 kg · Netherlands",
+    "ratio": 5.4
+  },
+  {
+    "selector": ".h3-preview-metrics span",
+    "color": "rgb(95, 121, 138)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "11px",
+    "text": "Active RFQs",
+    "ratio": 4.58
+  },
+  {
+    "selector": ".h3-hero-actions .btn",
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(8, 126, 164)",
+    "fontSize": "15px",
+    "text": "Get started ",
+    "ratio": 4.64
+  }
+]

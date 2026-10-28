@@ -23,3 +23,11 @@ Fonts are locally served WOFF2 with `font-display: swap`. No Google Fonts runtim
 ## Workspace 2.2 visual treatment
 
 The existing licensed photographs remain unchanged. New blue/orange overlay treatments are implemented in workspace.css; no new industrial factory, port-container or cold-chain photographs were added. Dedicated industrial replacement imagery remains a source-content follow-up rather than an unlicensed substitution.
+
+## SeaLink 3.0 Phase 1 industrial imagery
+
+`public/images/homepage-3/container-terminal.webp` is an original AI-generated industrial concept illustration produced with OpenAI's image generation tool for this project on 28 October 2026. It is not documentary photography, an actual SeaLink facility, or an affiliated business. The homepage caption and preview disclosure identify it as an illustration. It contains no requested third-party logos or brands. No third-party stock image license or attribution is asserted for this original generated asset; use remains subject to applicable tool/service terms.
+
+Generation brief: an oblique intermodal container-terminal illustration with blue/coral corrugated containers, a white refrigerated container and cooling unit, clean concrete apron and distant gantry cranes. No text, logos, people, fishing vessels or software UI. The original output was 1536×1024 PNG. The checked-in asset is resized to 1400px and encoded as WebP quality 85; metadata is stripped. The original generated PNG remains in the execution workspace under `/workspace/generated_images/exec-91ec58d0-06b4-483c-a0b2-b9dcec96ad53.png`.
+
+The previous ocean, coastal, harbour and meeting-room images are retained with their original source credits but are no longer used on the homepage. The new homepage makes no claim of industrial photographic documentation. If documentary European-port or seafood-processing photography is required, replace this illustrative asset with a cleared, appropriately licensed photograph and update these credits.

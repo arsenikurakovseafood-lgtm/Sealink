@@ -36,3 +36,11 @@ The daily dashboard consumes the same inbox projection and existing RFQs. The pr
 `/app/orders` displays awarded RFQs as unconfirmed planning context. `/app/shipments` displays saved logistics inquiries, not actual shipments. Notes persist locally. Neither screen creates purchase orders, bookings, transport tracking or contracts. Team roles and membership are local prototypes with no invitations or permission enforcement.
 
 `src/components/workspace-nav.tsx` provides grouped accessible buttons and links, state persistence, route indicators and desktop icon-only navigation. Mobile navigation supports Escape, focus containment and focus restoration; compact styling remains desktop-only. Additional workspace styling lives in `src/app/workspace.css`.
+
+## SeaLink 3.0 Phase 1 homepage
+
+`src/features/homepage-3.tsx` replaces only the homepage content. It reads existing demo, operations and workspace state without mutating commercial records. Its interactive preview uses actual company filters, RFQs, offers, inbox projections and activity; local tabs and country/search controls change only the presentation. Links open the existing application routes.
+
+`src/app/homepage-3.css` is scoped to `.home3-site` and `.home3` to keep operational screen styling intact. The public shell applies the scope only at `/`; onboarding, credits and `/app/*` remain on their existing shells. A mobile public-navigation control and homepage main landmark are included. Prices continue to come from `src/data/pricing.ts`. No backend, auth, email, WhatsApp, billing or deployment configuration changes are introduced.
+
+The hero uses local generated industrial imagery, explicitly disclosed as a concept illustration. No runtime image CDN dependency is introduced. Homepage tests now assert the new headline, product-preview interactions, country filtering, every linked destination/anchor, responsive layouts, reduced motion and asset loading. Previous screenshot expectations for the removed ocean composition were replaced; existing business workflow tests remain in place.

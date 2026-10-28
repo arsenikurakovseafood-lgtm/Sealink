@@ -50,7 +50,7 @@ New prices and tier benefits in `src/data/pricing.ts` are provisional, not final
 
 ## Premium visual redesign
 
-Public pages now use self-hosted Manrope with Instrument Serif editorial accents, a cinematic ocean hero, asymmetrical photographic panels, a fisheries-collaboration image section, refined membership hierarchy and reduced-motion-aware transitions. Operational business logic is unchanged. Four distinct photographs and two font subsets ship with the repository; no external image/font hosts or new environment variables are required. Sources, transformations and license notices are in [asset credits](docs/ASSET_CREDITS.md), with public attribution at `/credits`.
+The prior premium iteration introduced self-hosted Manrope with Instrument Serif editorial accents, an ocean hero and photographic panels. The SeaLink 3.0 Phase 1 homepage supersedes that composition; other public pages retain their existing typography and styling. Operational business logic is unchanged. Four distinct photographs and two font subsets ship with the repository; no external image/font hosts or new environment variables are required. Sources, transformations and license notices are in [asset credits](docs/ASSET_CREDITS.md), with public attribution at `/credits`.
 
 The redesign is based on `feature/sealink-2` so the existing public site and all new operations workflows remain included. Review the full branch against main; do not merge automatically.
 
@@ -65,3 +65,11 @@ The redesign is based on `feature/sealink-2` so the existing public site and all
 Sidebar groups and desktop compact mode persist separately from existing demonstration data. Mobile navigation includes focus containment and Escape dismissal. No external messaging integrations, team authorization, purchase orders or actual shipment tracking are implemented. No new dependencies, backend services or environment variables are required. Public photo treatments gain subtle orange accents while retaining documented licensed imagery; dedicated industrial replacement photography remains a sourcing follow-up.
 
 See [SeaLink 2.2 review and screenshots](docs/WORKSPACE_22_REVIEW.md) for the implemented workspace flows, validation evidence and known limits.
+
+## SeaLink 3.0 Phase 1 homepage
+
+The public homepage now presents one seafood marketplace and business workspace with the headline “Trade seafood. Run your business. One platform.” A live read-only representation of existing demonstration records supplies the interactive hero preview. Its tabs, company search, country controls and sourcing links open the existing workflows. Email and WhatsApp remain planned, not connected; prices remain provisional and billing is inactive.
+
+The old ocean/harbour/meeting imagery is replaced on the homepage by a clearly labeled original generated industrial illustration. This is concept imagery, not documentary photography of an actual facility. See `docs/ASSET_CREDITS.md`. No new dependencies, environment variables, internal-dashboard redesign or business-logic changes are required.
+
+[Homepage Phase 1 review and before/after screenshots](docs/HOMEPAGE_3_REVIEW.md) records the scope, visual iterations, measured contrast, tests and imagery limitations.

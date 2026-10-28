@@ -3,7 +3,7 @@ test("public pricing and professional onboarding", async ({ page }) => {
   await page.goto("/");
   await expect(
     page.getByRole("heading", {
-      name: "The European Seafood Industry. Connected.",
+      name: "Trade seafood. Run your business. One platform.",
     }),
   ).toBeVisible();
   await page
@@ -68,11 +68,9 @@ test("logistics, vacancy publishing, applications and capacity", async ({
     .getByLabel("Role description")
     .fill("Fictional quality control position for this local preview.");
   await page.getByRole("button", { name: "Save local demonstration" }).click();
-  const card = page
-    .locator(".jobs-list article")
-    .filter({
-      has: page.getByRole("heading", { name: "Demo quality manager" }),
-    });
+  const card = page.locator(".jobs-list article").filter({
+    has: page.getByRole("heading", { name: "Demo quality manager" }),
+  });
   await card.getByRole("button", { name: "Apply in demo" }).click();
   await page
     .getByLabel("Experience and motivation (fictional only)")

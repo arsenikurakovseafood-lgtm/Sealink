@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./premium.css";
 import "./workspace.css";
+import "./homepage-3.css";
 import { ExpansionProvider } from "@/features/expansion";
 import { WorkspaceProvider } from "@/features/workspace-state";
 import { DemoProvider } from "@/features/store";
