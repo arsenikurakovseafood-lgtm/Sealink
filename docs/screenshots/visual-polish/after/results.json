@@ -1,0 +1,100 @@
+[
+  {
+    "name": "homepage",
+    "mode": "desktop",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "dashboard",
+    "mode": "desktop",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "discover",
+    "mode": "desktop",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "marketplace",
+    "mode": "desktop",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "inbox",
+    "mode": "desktop",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "organization",
+    "mode": "desktop",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "rfqs",
+    "mode": "desktop",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "homepage",
+    "mode": "mobile",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "dashboard",
+    "mode": "mobile",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "discover",
+    "mode": "mobile",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "marketplace",
+    "mode": "mobile",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "inbox",
+    "mode": "mobile",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "organization",
+    "mode": "mobile",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "name": "rfqs",
+    "mode": "mobile",
+    "status": 200,
+    "overflow": false,
+    "errors": []
+  }
+]
