@@ -28,3 +28,23 @@ Ask whether specifications support real sourcing decisions; which supplier capab
 ## Limits
 
 No real identity, companies, verification, attachments, transport costing, negotiation engine, inventory, email, live capacity or billing. Price and date values are fixed illustrative records. Smart search supports documented keyword patterns only. Production multi-tenant security is a future milestone.
+
+## SeaLink 2.0 public and operations walkthrough
+
+Visit `/`, compare provisional €99 Starter / €199 Professional / custom Enterprise plans, then select a plan and finish the two-step `/join` demo. Business details update the organization; professional details update `/app/profile`. `/login` transparently opens the preview without authentication.
+
+Visit `/app/marketplace` to browse fictional product capabilities. Existing company, RFQ and quotation workflows are now under `/app`. In Logistics, choose a provider, save shipment requirements and review them in My activity. No booking or external delivery occurs.
+
+In Jobs & workforce, publish a fictional vacancy, save or apply to it, then use My activity to review applications and close/reopen owned vacancies. Employer review and applicant data remain in this local browser. In Publish capacity, select a supported company service and valid date range; the listing appears in the exchange and can be removed locally. Reset demo data restores the original scenario across modules.
+
+## SeaLink 2.2 daily workspace walkthrough
+
+1. Open `/app`. Review Needs Your Attention, unread conversation records, active RFQs and existing operational counts. These are local records, not live external notifications.
+2. Collapse Marketplace, refresh and confirm the group remains collapsed. Use the sidebar collapse control for desktop icon-only mode, then expand again. Some groups start collapsed to reduce navigation density.
+3. Open Unified Inbox. Filter quotations, search by commercial context and mark one record read. Enable Unread only; refresh and verify the review decision remains stored. Use a record link to navigate to the RFQ, quotation or conversation. Gmail, Outlook and WhatsApp are not integrated.
+4. In My Business, open My Organization. Use Company Profile, Team Members, Business Activity, Communication Overview and Company Preferences. Add/edit/remove a fictional team member; no invitation is sent and roles do not enforce permissions.
+5. Save a logistics inquiry and submit a fictional job application. Their categories and counts appear in the inbox/business overview. Deep links open each operations module's My activity view.
+6. Orders presents awarded RFQ context. Shipments presents transport inquiry context. Save a fictional planning note and refresh; no purchase order, booking or carrier-tracking event occurs.
+7. Reset Demo Data in Settings restores trade, operations and workspace-local preferences. The original discovery-focused dashboard is still available through the daily dashboard's Network overview link.
+
+Photography retains the four licensed source images documented in ASSET_CREDITS.md. Blue/orange layered treatments were refined; no unlicensed factory, container or cold-chain replacement photographs were introduced. Dedicated industrial replacement photography remains a content-sourcing follow-up.
