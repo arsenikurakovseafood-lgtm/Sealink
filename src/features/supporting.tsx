@@ -1,4 +1,6 @@
 "use client";
+import { plans } from "@/data/pricing";
+import { useExpansion } from "./expansion";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -40,6 +42,8 @@ import { useDemo } from "./store";
 import { CompanyAvatar } from "./network";
 import type { Organization } from "@/types";
 export function CapacityExchange({ id }: { id?: string }) {
+  const { data: extra } = useExpansion();
+  const listings = [...capacities, ...extra.capacity];
   const [country, setCountry] = useState("");
   const [service, setService] = useState("");
   const [fish, setFish] = useState("");
@@ -48,11 +52,11 @@ export function CapacityExchange({ id }: { id?: string }) {
   const [text, setText] = useState("");
   const { update, notify } = useDemo();
   const router = useRouter();
-  const selected = id ? capacities.find((c) => c.id === id) : null;
+  const selected = id ? listings.find((c) => c.id === id) : null;
   const c = selected
     ? companies.find((c) => c.id === selected.companyId)!
     : null;
-  const results = capacities.filter((v) => {
+  const results = listings.filter((v) => {
     const co = companies.find((c) => c.id === v.companyId)!;
     return (
       (!country || co.country === country) &&
@@ -86,7 +90,7 @@ export function CapacityExchange({ id }: { id?: string }) {
   return (
     <>
       {selected && (
-        <Link href="/capacity" className="back-link">
+        <Link href="/app/capacity" className="back-link">
           ← Back to Capacity Exchange
         </Link>
       )}
@@ -158,7 +162,7 @@ export function CapacityExchange({ id }: { id?: string }) {
                 {c!.city}, {c!.country}
               </p>
               <Button variant="outline" asChild>
-                <Link href={`/companies/${c!.id}`}>
+                <Link href={`/app/companies/${c!.id}`}>
                   View company
                   <ArrowUpRight size={14} />
                 </Link>
@@ -260,12 +264,15 @@ export function CapacityExchange({ id }: { id?: string }) {
                       </span>
                       <Badge tone="green">Illustrative availability</Badge>
                     </div>
-                    <Link className="company-name" href={`/capacity/${v.id}`}>
+                    <Link
+                      className="company-name"
+                      href={`/app/capacity/${v.id}`}
+                    >
                       {v.service}
                       <ArrowUpRight size={16} />
                     </Link>
                     <Link
-                      href={`/companies/${co.id}`}
+                      href={`/app/companies/${co.id}`}
                       className="capacity-company"
                     >
                       {co.name}
@@ -294,7 +301,7 @@ export function CapacityExchange({ id }: { id?: string }) {
                       </div>
                       <button
                         className="text-link"
-                        onClick={() => router.push(`/capacity/${v.id}`)}
+                        onClick={() => router.push(`/app/capacity/${v.id}`)}
                       >
                         View listing
                         <ArrowRight size={14} />
@@ -350,7 +357,15 @@ export function CapacityExchange({ id }: { id?: string }) {
 }
 export function Messages() {
   const { state, update, notify } = useDemo();
-  const [selected, setSelected] = useState(state.messages[0]?.id || "");
+  const [selected, setSelected] = useState(() => {
+    const id =
+      typeof window !== "undefined"
+        ? new URLSearchParams(window.location.search).get("thread")
+        : null;
+    return id && state.messages.some((m) => m.id === id)
+      ? id
+      : state.messages[0]?.id || "";
+  });
   const [text, setText] = useState("");
   const [query, setQuery] = useState("");
   const current = state.messages.find((m) => m.id === selected);
@@ -418,7 +433,7 @@ export function Messages() {
                 </strong>
                 <small>{current.subject}</small>
               </div>
-              <Link href={`/companies/${current.companyId}`}>
+              <Link href={`/app/companies/${current.companyId}`}>
                 <ArrowUpRight size={18} />
               </Link>
             </div>
@@ -715,7 +730,7 @@ export function SettingsPage() {
                 {state.organization.city}, {state.organization.country}
               </p>
               <Button asChild variant="outline">
-                <Link href="/organization">
+                <Link href="/app/organization">
                   Edit organization profile
                   <ArrowUpRight size={14} />
                 </Link>
@@ -735,29 +750,21 @@ export function SettingsPage() {
                 subtitle="Illustrative plan concepts. No billing or validated prices."
               />
               <div className="subscription-grid">
-                {["Network", "Professional", "Enterprise"].map((v) => (
-                  <div
-                    className={
-                      v === "Professional"
-                        ? "plan-option chosen"
-                        : "plan-option"
-                    }
-                    key={v}
-                  >
-                    <Badge tone={v === "Professional" ? "blue" : "neutral"}>
-                      {v === "Professional"
-                        ? "Current preview"
-                        : "Plan concept"}
-                    </Badge>
-                    <h3>{v}</h3>
-                    <p>
-                      {v === "Network"
-                        ? "Company discovery and professional profiles"
-                        : v === "Professional"
-                          ? "Structured sourcing, quotations and capacity discovery"
-                          : "Future team controls and enterprise integrations"}
-                    </p>
-                    <small>Pricing to be determined</small>
+                {plans.map((p) => (
+                  <div className="plan-option" key={p.name}>
+                    <Badge>Provisional concept</Badge>
+                    <h3>{p.name}</h3>
+                    <strong>
+                      {p.price}
+                      {p.name !== "Enterprise"
+                        ? " / month + applicable VAT"
+                        : " pricing"}
+                    </strong>
+                    <p>{p.features.join(" · ")}</p>
+                    <Link href={`/join?plan=${p.name}`}>
+                      Select demo membership →
+                    </Link>
+                    <small>No billing is active</small>
                   </div>
                 ))}
               </div>

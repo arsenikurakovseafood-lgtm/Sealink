@@ -20,6 +20,7 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { companies, capacities } from "@/data/demo";
+import { useExpansion } from "./expansion";
 import { useDemo } from "./store";
 import { Button } from "@/components/ui/button";
 import { Badge, SectionTitle, TextLink } from "@/components/ui/shared";
@@ -27,6 +28,7 @@ import { CompanyCard, CompanyAvatar } from "./network";
 import { RFQTable } from "./commercial";
 export function Dashboard() {
   const { state } = useDemo();
+  const { data: extra } = useExpansion();
   const router = useRouter();
   const [query, setQuery] = useState("");
   const active = state.rfqs.filter((r) => r.status === "Open");
@@ -50,7 +52,7 @@ export function Dashboard() {
             27 October 2026 <Badge>Demo date</Badge>
           </span>
           <Button asChild>
-            <Link href="/rfqs/new">
+            <Link href="/app/rfqs/new">
               <Plus size={16} />
               Create RFQ
             </Link>
@@ -76,7 +78,7 @@ export function Dashboard() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              router.push(`/discover?smart=${encodeURIComponent(query)}`);
+              router.push(`/app/discover?smart=${encodeURIComponent(query)}`);
             }}
           >
             <Search size={20} />
@@ -98,7 +100,10 @@ export function Dashboard() {
               ["MSC certified", "MSC"],
               ["Cold storage", "Cold storage"],
             ].map(([label, q]) => (
-              <button key={q} onClick={() => router.push(`/discover?q=${q}`)}>
+              <button
+                key={q}
+                onClick={() => router.push(`/app/discover?q=${q}`)}
+              >
                 {label}
                 <ArrowUpRight size={11} />
               </button>
@@ -116,25 +121,25 @@ export function Dashboard() {
             label: "Find Suppliers",
             sub: "Source the right product",
             icon: PackageSearch,
-            url: "/discover?activity=Supplier",
+            url: "/app/discover?activity=Supplier",
           },
           {
             label: "Find Buyers",
             sub: "Build new partnerships",
             icon: Users,
-            url: "/discover?activity=Buyer",
+            url: "/app/discover?activity=Buyer",
           },
           {
             label: "Find Processors",
             sub: "Discover industrial expertise",
             icon: Factory,
-            url: "/discover?activity=Processor",
+            url: "/app/discover?activity=Processor",
           },
           {
             label: "Explore Capacity",
             sub: "Make production possible",
             icon: Waves,
-            url: "/capacity",
+            url: "/app/capacity",
           },
         ].map(({ label, sub, icon: Icon, url }) => (
           <Link key={label} href={url}>
@@ -156,28 +161,28 @@ export function Dashboard() {
             value: active.length,
             icon: FileText,
             foot: `${state.rfqs.filter((r) => r.status === "Draft").length} draft ready to complete`,
-            url: "/rfqs",
+            url: "/app/rfqs",
           },
           {
             title: "Pending quotations",
             value: pending.length,
             icon: Layers3,
             foot: "Supplier responses to review",
-            url: "/offers",
+            url: "/app/offers",
           },
           {
             title: "Saved companies",
             value: state.saved.length,
             icon: Bookmark,
             foot: "Your growing partner shortlist",
-            url: "/companies",
+            url: "/app/companies",
           },
           {
             title: "Capacity opportunities",
-            value: capacities.length,
+            value: capacities.length + extra.capacity.length,
             icon: Factory,
             foot: "Illustrative listings across Europe",
-            url: "/capacity",
+            url: "/app/capacity",
           },
         ].map(({ title, value, icon: Icon, foot, url }) => (
           <Link className="metric-card" href={url} key={title}>
@@ -201,7 +206,7 @@ export function Dashboard() {
                 title="Active sourcing"
                 subtitle="Your open requests, moving forward."
                 action={
-                  <TextLink onClick={() => router.push("/rfqs")}>
+                  <TextLink onClick={() => router.push("/app/rfqs")}>
                     View all RFQs
                   </TextLink>
                 }
@@ -214,7 +219,7 @@ export function Dashboard() {
                 No active sourcing requests. Create an RFQ to get started.
               </div>
             )}
-            <Link className="table-bottom-link" href="/rfqs/new">
+            <Link className="table-bottom-link" href="/app/rfqs/new">
               <Plus size={14} />
               Create a new sourcing request
               <ArrowRight size={14} />
@@ -225,7 +230,7 @@ export function Dashboard() {
               title="Recommended connections"
               subtitle="Selected for your seafood sourcing network."
               action={
-                <TextLink onClick={() => router.push("/discover")}>
+                <TextLink onClick={() => router.push("/app/discover")}>
                   Explore network
                 </TextLink>
               }
@@ -272,7 +277,7 @@ export function Dashboard() {
                     <strong>{state.offers.length} quotations</strong> available
                     to review
                   </p>
-                  <Link href="/offers">
+                  <Link href="/app/offers">
                     Explore supplier responses <ArrowRight size={11} />
                   </Link>
                 </div>
@@ -286,7 +291,7 @@ export function Dashboard() {
                     <strong>{state.saved.length} companies</strong> in your
                     shortlist
                   </p>
-                  <Link href="/companies">
+                  <Link href="/app/companies">
                     Review saved partners <ArrowRight size={11} />
                   </Link>
                 </div>
@@ -307,7 +312,7 @@ export function Dashboard() {
               Explore available filleting, freezing and packaging expertise
               across Europe.
             </p>
-            <Link href="/capacity">
+            <Link href="/app/capacity">
               Explore Capacity Exchange <ArrowRight size={15} />
             </Link>
             <small>Fictional availability · Preview</small>
@@ -317,7 +322,7 @@ export function Dashboard() {
             {state.viewed.slice(0, 3).map((id) => {
               const c = companies.find((c) => c.id === id);
               return c ? (
-                <Link key={id} href={`/companies/${id}`}>
+                <Link key={id} href={`/app/companies/${id}`}>
                   <CompanyAvatar company={c} />
                   <div>
                     <strong>{c.name}</strong>
