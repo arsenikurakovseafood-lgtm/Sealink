@@ -89,7 +89,7 @@ export function CompanyCard({ company: c }: { company: Company }) {
         <CompanyAvatar company={c} />
         <SaveCompany id={c.id} />
       </div>
-      <Link href={`/companies/${c.id}`} className="company-name">
+      <Link href={`/app/companies/${c.id}`} className="company-name">
         {c.name}
         <ArrowUpRight size={15} />
       </Link>
@@ -118,7 +118,7 @@ export function CompanyCard({ company: c }: { company: Company }) {
             </span>
           ))}
         </div>
-        <Link href={`/companies/${c.id}`} aria-label={`View ${c.name}`}>
+        <Link href={`/app/companies/${c.id}`} aria-label={`View ${c.name}`}>
           <ArrowRight size={17} />
         </Link>
       </div>
@@ -385,7 +385,7 @@ export function CompanyProfile({ id }: { id: string }) {
   const listings = capacities.filter((v) => v.companyId === c.id);
   return (
     <>
-      <Link className="back-link" href="/discover">
+      <Link className="back-link" href="/app/discover">
         ← Back to discovery
       </Link>
       <div className="profile-cover">
@@ -416,7 +416,7 @@ export function CompanyProfile({ id }: { id: string }) {
           <Button
             onClick={() =>
               router.push(
-                `/rfqs/new?supplier=${c.id}&species=${encodeURIComponent(c.species[0])}`,
+                `/app/rfqs/new?supplier=${c.id}&species=${encodeURIComponent(c.species[0])}`,
               )
             }
           >
@@ -509,7 +509,7 @@ export function CompanyProfile({ id }: { id: string }) {
                 <Link
                   className="list-row"
                   key={l.id}
-                  href={`/capacity/${l.id}`}
+                  href={`/app/capacity/${l.id}`}
                 >
                   <Factory size={22} />
                   <div>
@@ -551,7 +551,7 @@ export function CompanyProfile({ id }: { id: string }) {
             <Package size={26} />
             <h3>Start a commercial conversation</h3>
             <p>Turn the right connection into a structured sourcing request.</p>
-            <Button onClick={() => router.push(`/rfqs/new?supplier=${c.id}`)}>
+            <Button onClick={() => router.push(`/app/rfqs/new?supplier=${c.id}`)}>
               Create an RFQ <ArrowRight size={15} />
             </Button>
           </section>
@@ -584,7 +584,7 @@ export function CompanyProfile({ id }: { id: string }) {
                     }));
                     notify("Supplier added to draft RFQ.");
                     setSelect(false);
-                    router.push(`/rfqs/${r.id}`);
+                    router.push(`/app/rfqs/${r.id}`);
                   }}
                 >
                   <FileIcon />
@@ -597,7 +597,7 @@ export function CompanyProfile({ id }: { id: string }) {
               ))}
             <Button
               variant="outline"
-              onClick={() => router.push(`/rfqs/new?supplier=${c.id}`)}
+              onClick={() => router.push(`/app/rfqs/new?supplier=${c.id}`)}
             >
               Create a new RFQ
             </Button>

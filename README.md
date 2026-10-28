@@ -41,3 +41,9 @@ See [Demo guide](docs/DEMO_GUIDE.md), [Architecture](docs/ARCHITECTURE.md), [Pro
 Start the app, then run `npm run test:e2e`. Install a Playwright browser with `npx playwright install chromium` first, or set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium` to use this cloud environment’s installed browser. The two tests exercise the connected sourcing flow, local persistence/reset, all primary routes and mobile navigation.
 
 `npm run build` and `npm run dev` use webpack for compatibility with cloud environments that restrict Turbopack worker sockets.
+
+## SeaLink 2.0
+
+Public pages: `/`, `/join`, `/login`. Workspace: `/app`, `/app/marketplace`, existing `/app/discover`, `/app/rfqs`, `/app/offers`, `/app/capacity`, plus `/app/logistics`, `/app/jobs`, `/app/profile`, `/app/publish-capacity`. Original company data and RFQ workflows remain. No additional environment variables or services are needed.
+
+New prices and tier benefits in `src/data/pricing.ts` are provisional, not finalized commercial policy. All new logistics, recruitment and publishing workflows are local-only demonstrations. The maritime hero is a documented illustration placeholder pending licensed photography. No deployment is claimed by the source implementation.

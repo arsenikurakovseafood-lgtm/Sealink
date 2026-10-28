@@ -28,3 +28,11 @@ Ask whether specifications support real sourcing decisions; which supplier capab
 ## Limits
 
 No real identity, companies, verification, attachments, transport costing, negotiation engine, inventory, email, live capacity or billing. Price and date values are fixed illustrative records. Smart search supports documented keyword patterns only. Production multi-tenant security is a future milestone.
+
+## SeaLink 2.0 public and operations walkthrough
+
+Visit `/`, compare provisional €99 Starter / €199 Professional / custom Enterprise plans, then select a plan and finish the two-step `/join` demo. Business details update the organization; professional details update `/app/profile`. `/login` transparently opens the preview without authentication.
+
+Visit `/app/marketplace` to browse fictional product capabilities. Existing company, RFQ and quotation workflows are now under `/app`. In Logistics, choose a provider, save shipment requirements and review them in My activity. No booking or external delivery occurs.
+
+In Jobs & workforce, publish a fictional vacancy, save or apply to it, then use My activity to review applications and close/reopen owned vacancies. Employer review and applicant data remain in this local browser. In Publish capacity, select a supported company service and valid date range; the listing appears in the exchange and can be removed locally. Reset demo data restores the original scenario across modules.

@@ -86,7 +86,7 @@ export function RFQTable({
           {items.map((r) => (
             <tr key={r.id}>
               <td>
-                <Link className="table-title" href={`/rfqs/${r.id}`}>
+                <Link className="table-title" href={`/app/rfqs/${r.id}`}>
                   {r.title}
                 </Link>
                 <small>
@@ -118,7 +118,7 @@ export function RFQTable({
                 </span>
               </td>
               <td>
-                <Link aria-label={`Open ${r.title}`} href={`/rfqs/${r.id}`}>
+                <Link aria-label={`Open ${r.title}`} href={`/app/rfqs/${r.id}`}>
                   <ArrowUpRight size={16} />
                 </Link>
               </td>
@@ -152,7 +152,7 @@ export function RFQList() {
           </p>
         </div>
         <Button asChild>
-          <Link href="/rfqs/new">
+          <Link href="/app/rfqs/new">
             <Plus size={16} />
             Create RFQ
           </Link>
@@ -295,12 +295,12 @@ export function RFQForm({ existing }: { existing?: RFQ }) {
       ],
     }));
     notify("RFQ draft saved. Choose suppliers to continue.");
-    router.push(`/rfqs/${id}`);
+    router.push(`/app/rfqs/${id}`);
   });
   return (
     <>
       <Link
-        href={existing ? `/rfqs/${existing.id}` : "/rfqs"}
+        href={existing ? `/app/rfqs/${existing.id}` : "/app/rfqs"}
         className="back-link"
       >
         ← Back to RFQs
@@ -552,7 +552,7 @@ export function RFQDetail({ id }: { id: string }) {
   };
   return (
     <>
-      <Link href="/rfqs" className="back-link">
+      <Link href="/app/rfqs" className="back-link">
         ← Back to requests
       </Link>
       <div className="page-heading">
@@ -571,7 +571,7 @@ export function RFQDetail({ id }: { id: string }) {
           {r.status === "Draft" && (
             <Button
               variant="outline"
-              onClick={() => router.push(`/rfqs/${id}/edit`)}
+              onClick={() => router.push(`/app/rfqs/${id}/edit`)}
             >
               Edit requirements
             </Button>
@@ -773,7 +773,7 @@ export function RFQDetail({ id }: { id: string }) {
                     )}
                     <CompanyAvatar company={c} />
                     <div className="supplier-info">
-                      <Link href={`/companies/${c.id}`}>
+                      <Link href={`/app/companies/${c.id}`}>
                         <strong>{c.name}</strong>
                         <ArrowUpRight size={13} />
                       </Link>
@@ -820,7 +820,7 @@ export function RFQDetail({ id }: { id: string }) {
                 <Button
                   variant="outline"
                   disabled={offers.length < 2}
-                  onClick={() => router.push(`/offers?rfq=${id}&compare=1`)}
+                  onClick={() => router.push(`/app/offers?rfq=${id}&compare=1`)}
                 >
                   <Layers3 size={15} />
                   Compare offers
@@ -947,10 +947,10 @@ export function OfferTable({
                   </td>
                 )}
                 <td>
-                  <Link className="table-title" href={`/offers/${o.id}`}>
+                  <Link className="table-title" href={`/app/offers/${o.id}`}>
                     {c.name}
                   </Link>
-                  <Link className="table-sub-link" href={`/rfqs/${r.id}`}>
+                  <Link className="table-sub-link" href={`/app/rfqs/${r.id}`}>
                     {r.title}
                   </Link>
                 </td>
@@ -971,7 +971,7 @@ export function OfferTable({
                 <td>
                   <Link
                     aria-label={`Open ${c.name} quotation`}
-                    href={`/offers/${o.id}`}
+                    href={`/app/offers/${o.id}`}
                   >
                     <ArrowUpRight size={16} />
                   </Link>
@@ -1180,7 +1180,7 @@ export function OfferDetail({ id }: { id: string }) {
   const r = state.rfqs.find((v) => v.id === o.rfqId)!;
   return (
     <>
-      <Link href="/offers" className="back-link">
+      <Link href="/app/offers" className="back-link">
         ← Back to quotations
       </Link>
       <div className="page-heading">
@@ -1238,7 +1238,7 @@ export function OfferDetail({ id }: { id: string }) {
               {c.city}, {c.country}
             </p>
             <Button variant="outline" asChild>
-              <Link href={`/companies/${c.id}`}>
+              <Link href={`/app/companies/${c.id}`}>
                 View company
                 <ArrowUpRight size={14} />
               </Link>
@@ -1246,7 +1246,7 @@ export function OfferDetail({ id }: { id: string }) {
           </section>
           <section className="panel padded">
             <h3>Related request</h3>
-            <Link className="text-link" href={`/rfqs/${r.id}`}>
+            <Link className="text-link" href={`/app/rfqs/${r.id}`}>
               {r.title}
               <ArrowRight size={15} />
             </Link>
