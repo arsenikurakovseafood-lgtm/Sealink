@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import {
@@ -45,11 +46,58 @@ export function RouteShell({ children }: { children: React.ReactNode }) {
         © SeaLink · European seafood industry platform{" "}
         <Link href="/app">Explore demo workspace →</Link>
         <span>Fictional preview · No billing or external delivery</span>
+        <Link href="/credits">Photography & type credits</Link>
       </footer>
     </div>
   );
 }
 export function PublicPage({ route }: { route: string }) {
+  if (route === "credits")
+    return (
+      <section className="public-section credits">
+        <span className="eyebrow">DESIGN SOURCES</span>
+        <h1>Photography & typography</h1>
+        <p>
+          Photography is used for editorial atmosphere only. It does not depict
+          SeaLink companies or imply endorsement. The photographs are supplied
+          by Start Bootstrap (MIT) and Openscapes (CC BY 4.0). Fishing harbour
+          photograph: Alicia Miller. Coastal and workshop photographs:
+          Openscapes contributors. Images are cropped and converted to WebP.
+        </p>
+        <p>
+          Manrope and Instrument Serif are self-hosted under the SIL Open Font
+          License. Source and license notices are included with the font files.
+        </p>
+        <ul>
+          <li>
+            <a href="https://github.com/StartBootstrap/startbootstrap-landing-page">
+              Open-water photograph: Start Bootstrap · MIT
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/nmfs-openscapes/nmfs-openscapes.github.io/blob/main/blog/2020-03-06-workshop-noaa-nefsc/index.qmd">
+              Harbour boats: Alicia Miller · Openscapes · CC BY 4.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/nmfs-openscapes/nmfs-openscapes.github.io/blob/main/blog/2022-03-21-news-march-2022/index.qmd">
+              Coastal photograph: Openscapes contributors · CC BY 4.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/nmfs-openscapes/nmfs-openscapes.github.io/blob/main/blog/2020-03-06-workshop-noaa-nefsc/index.qmd">
+              Fisheries workshop: Openscapes contributors · CC BY 4.0
+            </a>
+          </li>
+          <li>
+            <a href="https://creativecommons.org/licenses/by/4.0/">
+              Creative Commons Attribution 4.0 license
+            </a>
+          </li>
+        </ul>
+        <Link href="/">Back to SeaLink →</Link>
+      </section>
+    );
   return route === "home" ? (
     <Homepage />
   ) : route === "join" || route === "login" ? (
@@ -91,19 +139,19 @@ function Homepage() {
           </div>
           <small>Local demonstration · No payment required</small>
         </div>
-        <div
-          className="maritime-art"
-          role="img"
-          aria-label="Illustrated European maritime routes, photography placeholder"
-        >
-          <div className="sea-orbit" />
-          <Waves size={120} strokeWidth={0.7} />
-          <span>ROTTERDAM ↗ TALLINN</span>
-          <strong>
-            A shared ocean.
-            <br />A stronger network.
-          </strong>
-          <small>Maritime illustration · Photography pending</small>
+        <div className="hero-photograph">
+          <Image
+            src="/images/maritime-hero.webp"
+            alt="Open ocean, with blue waves extending to the horizon"
+            fill
+            priority
+            sizes="100vw"
+            quality={85}
+          />
+        </div>
+        <div className="hero-coordinate">
+          <span>THE CONNECTED INDUSTRY</span>
+          <span>SEAFOOD / PEOPLE / POSSIBILITIES</span>
         </div>
       </section>
       <section className="coverage-line">
@@ -124,6 +172,50 @@ function Homepage() {
           SeaLink brings the commercial context together — from finding a
           supplier to understanding what they can deliver.
         </p>
+      </section>
+      <section className="industry-editorial" aria-label="Inside the industry">
+        <div className="editorial-heading">
+          <span className="eyebrow">A WORLD OF EXPERTISE</span>
+          <h2>
+            Real industry.
+            <br />
+            <em>Shared ambition.</em>
+          </h2>
+          <p>
+            From the first catch to the final mile, progress depends on people
+            who know their craft.
+          </p>
+        </div>
+        <figure className="editorial-tall">
+          <div className="photo-frame">
+            <Image
+              src="/images/working-waterfront.webp"
+              alt="A working vessel on the water"
+              fill
+              sizes="(max-width: 700px) 90vw, 38vw"
+              quality={80}
+            />
+          </div>
+          <figcaption>
+            <span>01 / ON THE WATER</span>
+            <strong>Where every connection begins.</strong>
+          </figcaption>
+        </figure>
+        <figure className="editorial-short">
+          <div className="photo-frame">
+            <Image
+              src="/images/coastal-detail.webp"
+              alt="Rocky coast and breaking waves"
+              fill
+              sizes="(max-width: 700px) 90vw, 30vw"
+              quality={80}
+            />
+          </div>
+          <figcaption>
+            <span>02 / A SHARED RESOURCE</span>
+            <strong>Connected by the ocean.</strong>
+          </figcaption>
+        </figure>
       </section>
       <section className="public-section" id="solutions">
         <div className="ecosystem">
@@ -163,6 +255,26 @@ function Homepage() {
               </Link>
             );
           })}
+        </div>
+      </section>
+      <section className="ocean-statement">
+        <Image
+          src="/images/working-together.webp"
+          alt="Fisheries science teams collaborating at an Openscapes workshop"
+          fill
+          sizes="100vw"
+          quality={80}
+        />
+        <div>
+          <span className="eyebrow">ONE INDUSTRY. A WIDER HORIZON.</span>
+          <h2>
+            Better connections.
+            <br />
+            <em>Greater possibilities.</em>
+          </h2>
+          <Link href="/app" className="photo-link">
+            Explore your workspace <ArrowUpRight size={20} />
+          </Link>
         </div>
       </section>
       <section className="public-section how">

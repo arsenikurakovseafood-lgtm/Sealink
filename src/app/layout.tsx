@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./premium.css";
 import { ExpansionProvider } from "@/features/expansion";
 import { DemoProvider } from "@/features/store";
 import { RouteShell } from "@/features/public";
