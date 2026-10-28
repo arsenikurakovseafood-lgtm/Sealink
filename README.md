@@ -73,3 +73,7 @@ The public homepage now presents one seafood marketplace and business workspace 
 The old ocean/harbour/meeting imagery is replaced on the homepage by a clearly labeled original generated industrial illustration. This is concept imagery, not documentary photography of an actual facility. See `docs/ASSET_CREDITS.md`. No new dependencies, environment variables, internal-dashboard redesign or business-logic changes are required.
 
 [Homepage Phase 1 review and before/after screenshots](docs/HOMEPAGE_3_REVIEW.md) records the scope, visual iterations, measured contrast, tests and imagery limitations.
+
+## SeaLink 3.0 visual polish
+
+A focused visual layer refines the existing homepage and workspace without changing business behavior. See [the visual review and desktop/mobile before-and-after gallery](docs/VISUAL_POLISH_REVIEW.md).

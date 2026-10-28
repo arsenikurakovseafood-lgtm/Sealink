@@ -44,3 +44,7 @@ The daily dashboard consumes the same inbox projection and existing RFQs. The pr
 `src/app/homepage-3.css` is scoped to `.home3-site` and `.home3` to keep operational screen styling intact. The public shell applies the scope only at `/`; onboarding, credits and `/app/*` remain on their existing shells. A mobile public-navigation control and homepage main landmark are included. Prices continue to come from `src/data/pricing.ts`. No backend, auth, email, WhatsApp, billing or deployment configuration changes are introduced.
 
 The hero uses local generated industrial imagery, explicitly disclosed as a concept illustration. No runtime image CDN dependency is introduced. Homepage tests now assert the new headline, product-preview interactions, country filtering, every linked destination/anchor, responsive layouts, reduced motion and asset loading. Previous screenshot expectations for the removed ocean composition were replaced; existing business workflow tests remain in place.
+
+## SeaLink 3.0 visual polish
+
+`src/app/visual-polish.css`, imported last in the root layout, refines the existing homepage and `.app` presentation. Data panels remain opaque. Glass enhancement is limited to navigation, preview chrome and popovers with solid fallbacks. Mobile breadcrumbs flex within the header to preserve navigation/action controls. No route, provider, persistence schema, dependency or deployment configuration changes are introduced.

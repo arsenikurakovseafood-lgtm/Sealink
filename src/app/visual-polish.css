@@ -1,0 +1,2553 @@
+/* Focused visual refinement. Data surfaces stay opaque; glass is opt-in. */
+:root {
+  --polish-ocean: #08799e;
+  --polish-ink: #15394e;
+  --polish-secondary: #4e687a;
+  --polish-coral: #f46b3f;
+  --polish-border: #dce6ed;
+  --polish-radius: 12px;
+  --polish-shadow: 0 3px 10px #183b5004, 0 14px 32px #183b5006;
+}
+.home3-site .public-nav {
+  background: #fff;
+  border-bottom-color: #e1eaf0;
+  box-shadow: 0 3px 14px #173f5503;
+}
+.home3-site .public-nav nav {
+  font-weight: 650;
+}
+.home3-site .public-nav nav > a:not(.btn) {
+  color: #264b61;
+}
+.home3-site .btn {
+  border-radius: 12px;
+  box-shadow:
+    0 2px 3px #0c52650a,
+    0 6px 14px #0c526512;
+}
+.home3-site .btn-outline {
+  box-shadow: 0 2px 6px #193d5104;
+}
+.h3-hero {
+  gap: 50px;
+  padding-top: 60px;
+  padding-bottom: 55px;
+}
+.h3-hero:before {
+  background:
+    radial-gradient(ellipse at 72% 45%, #e5f2f955, transparent 56%),
+    linear-gradient(160deg, #fff 55%, #f6fafc);
+}
+.h3-hero h1 {
+  letter-spacing: -2.7px;
+  line-height: 1.1;
+}
+.h3-hero h1 > span:after {
+  background: var(--polish-coral);
+  height: 5px;
+  width: 61px;
+}
+.h3-hero-copy > p {
+  line-height: 1.85;
+  color: #405d70;
+  max-width: 470px;
+}
+.h3-hero-actions {
+  gap: 27px;
+}
+.h3-scene-grid {
+  display: none;
+}
+.h3-hero-scene {
+  padding-top: 92px;
+  padding-bottom: 25px;
+  min-height: 600px;
+}
+.h3-industrial {
+  top: 9px;
+  right: -24px;
+  width: 94%;
+  height: 350px;
+  background: transparent;
+  transform: rotate(1deg);
+  box-shadow: none;
+  border-radius: 24px;
+}
+.h3-industrial img {
+  opacity: 0.58;
+  filter: blur(1.1px) saturate(0.82);
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 40%,
+    #0009 75%,
+    transparent 100%
+  );
+}
+.h3-industrial:after {
+  display: none;
+}
+.h3-industrial > span {
+  top: 14px;
+  right: 15px;
+  background: #244b60;
+  color: #fff;
+  font-size: 11px;
+  box-shadow: none;
+  font-weight: 500;
+}
+.h3-product {
+  border-color: #d5e2ea;
+  border-radius: 18px;
+  box-shadow:
+    0 2px 5px #183d5106,
+    0 20px 48px #17476017,
+    0 1px 0 #ffffff inset;
+  background: #fff;
+}
+.h3-product-chrome {
+  background: #f7fbfd;
+  border-bottom-color: #e3edf3;
+  padding: 15px 18px;
+}
+.h3-product-org {
+  font-size: 12px;
+  color: #4e6c80;
+}
+.h3-product-chrome > a {
+  font-size: 12px;
+  color: #32637e;
+}
+.h3-product-rail {
+  background: #f8fbfd;
+  color: #5a7c92;
+}
+.h3-product-main {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+.h3-product-tabs > button {
+  font-size: 13px;
+  color: #506e81;
+  padding-top: 14px;
+  padding-bottom: 13px;
+  min-height: 44px;
+}
+.h3-product-tabs > button[aria-pressed="true"] {
+  color: #174e69;
+  border-bottom-color: #d3542a !important;
+}
+.h3-preview-heading > div > span {
+  font-size: 11px;
+  color: #546f81;
+  letter-spacing: 0.8px;
+}
+.h3-preview-heading h3 {
+  font-size: 20px;
+  letter-spacing: -0.65px;
+}
+.h3-preview-metrics strong {
+  font-size: 27px;
+  letter-spacing: -0.8px;
+  font-weight: 700;
+}
+.h3-preview-metrics span {
+  font-size: 12px;
+  color: #4e6b7e;
+  line-height: 1.65;
+}
+.h3-preview-section {
+  font-size: 13px;
+  margin-top: 19px;
+}
+.h3-preview-section > a {
+  font-size: 12px;
+}
+.h3-preview-row {
+  padding: 14px 0;
+  gap: 12px;
+  min-height: 68px;
+}
+.h3-preview-row strong {
+  font-size: 13px;
+  color: #264f66;
+  line-height: 1.55;
+}
+.h3-preview-row > div > span {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #536e80;
+}
+.h3-row-status {
+  font-size: 11px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  color: #2f6e53;
+  background: #edf7f1;
+  border-color: #cde5d8;
+}
+.h3-row-status.draft {
+  color: #4e6678;
+  background: #f1f5f8;
+  border-color: #dce5ec;
+}
+.h3-preview-activity > span {
+  font-size: 12px;
+  color: #476d83;
+}
+.h3-preview-activity p {
+  font-size: 12px;
+  color: #546f81;
+  line-height: 1.7;
+}
+.h3-scene-note {
+  display: none;
+}
+.h3-preview-helper {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #4e6c80;
+}
+.h3-preview-inbox-row strong {
+  font-size: 13px;
+  color: #264f66;
+}
+.h3-preview-inbox-row p {
+  font-size: 12px;
+  color: #526f80;
+}
+.h3-preview-inbox-row > div > span {
+  font-size: 11px;
+  color: #95562f;
+}
+.h3-preview-local {
+  font-size: 12px;
+  color: #546f81;
+}
+.h3-preview-search input {
+  font-size: 12px;
+}
+.h3-preview-directory {
+  font-size: 13px;
+}
+.h3-value-strip {
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+.h3-value-strip > span {
+  font-size: 11px;
+  color: #506e81;
+  letter-spacing: 0.75px;
+}
+.h3-value-strip > div {
+  font-size: 13px;
+}
+.h3-eyebrow {
+  font-size: 12px;
+  color: #08688b;
+  letter-spacing: 1.1px;
+}
+.h3-steps h3 {
+  font-weight: 700;
+}
+.h3-steps > a {
+  border-top-color: #c9dbe5;
+}
+.h3-steps > a > div > span {
+  color: #b14e28;
+}
+.h3-market {
+  background: #f3f8fb;
+  border-color: #e3edf3;
+}
+.h3-network-panel,
+.h3-workspace-board {
+  border-color: #d8e5ee;
+  border-radius: 18px;
+  box-shadow: var(--polish-shadow);
+  background: #fff;
+}
+.h3-network-title p {
+  font-size: 14px;
+  color: #536f81;
+}
+.h3-country-tabs button {
+  font-size: 13px;
+  min-height: 40px;
+  border-radius: 9px;
+  color: #3f657d;
+}
+.h3-country-tabs button[aria-pressed="true"] {
+  background: #e6f2f9;
+  border-color: #a9cede !important;
+  color: #075d7e;
+}
+.h3-company-tags > span {
+  font-size: 12px;
+  color: #49687b;
+  border-radius: 6px;
+}
+.h3-network-company h3 {
+  font-weight: 700;
+}
+.h3-board-top > a {
+  font-size: 12px;
+  color: #426b82;
+}
+.h3-board-top > span {
+  font-size: 14px;
+}
+.h3-board-inbox {
+  background: #173d52;
+  box-shadow: 0 2px 6px #11374a0a;
+  border-radius: 14px;
+}
+.h3-board-links a {
+  padding: 19px 0;
+}
+.h3-planned strong {
+  font-size: 13px;
+  color: #44677d;
+}
+.h3-planned p > span {
+  font-size: 12px;
+  color: #536f81;
+}
+.h3-planned > span {
+  font-size: 11px;
+  color: #486779;
+  border-radius: 6px;
+}
+.h3-experience {
+  background: #15394e;
+}
+.h3-experience .h3-section {
+  position: relative;
+}
+.h3-experience .h3-section:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 160px;
+  height: 160px;
+  border: 1px solid #85c9de12;
+  border-radius: 100%;
+  transform: translate(40%, -40%);
+  pointer-events: none;
+}
+.h3-commercial-path {
+  border-color: #ffffff2b;
+  border-radius: 17px;
+}
+.h3-commercial-path > a {
+  background: #ffffff03;
+}
+.h3-commercial-path > a > span:first-child {
+  font-size: 12px;
+  letter-spacing: 0.65px;
+  color: #c2dce8;
+}
+.h3-path-link {
+  font-size: 13px;
+}
+.h3-membership {
+  position: relative;
+  isolation: isolate;
+}
+.h3-membership:before {
+  content: "";
+  position: absolute;
+  left: -70px;
+  top: 40px;
+  width: 170px;
+  height: 170px;
+  border: 1px solid #087ea40a;
+  border-radius: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+.h3-pricing > article {
+  border-radius: 18px;
+  box-shadow: 0 2px 8px #183b5003;
+  border-color: #dbe6ee;
+}
+.h3-pricing > article > span {
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  color: #536f81;
+}
+.h3-pricing > article.h3-plan-featured {
+  background: #f5fbfe;
+  border-color: #93bed3;
+  box-shadow: var(--polish-shadow);
+}
+.h3-plan-featured:before {
+  background: var(--polish-coral);
+  height: 3px;
+  left: 28px;
+  right: 28px;
+}
+.h3-price {
+  font-weight: 700;
+  letter-spacing: -1.8px;
+}
+.h3-pricing > article > p {
+  color: #536f81;
+  font-size: 14px;
+}
+.h3-final {
+  background: #eef7fb;
+  border: 1px solid #e2eff5;
+  border-radius: 24px;
+}
+.h3-final:before {
+  border-color: #f46b3f12;
+  width: 190px;
+  height: 190px;
+  bottom: -115px;
+  left: -85px;
+}
+.h3-disclosure p,
+.h3-disclosure button {
+  font-size: 13px;
+  color: #4c6c80;
+}
+.home3-site footer,
+.home3-site footer a {
+  font-size: 12px;
+  color: #4c6c80;
+}
+.home3-site .public-nav nav.public-menu-open {
+  background: #fff;
+  border-color: #dae7ef;
+  box-shadow:
+    0 8px 25px #193e5510,
+    0 1px 0 #ffffff inset;
+}
+/* Operational readability and hierarchy: no blur on tables or data cards. */
+.app {
+  --muted: #536b7d;
+  --line: #dce6ed;
+  color: #26465b;
+}
+.app .topbar {
+  background: #fff;
+  border-bottom-color: #e1e9ef;
+  box-shadow: 0 2px 6px #16394e02;
+}
+.app .breadcrumb {
+  font-size: 12px;
+  color: #506d80;
+}
+.app .breadcrumb > span:first-of-type {
+  color: #546f81;
+}
+.app .global-search input {
+  font-size: 12px;
+}
+.app .global-search {
+  color: #5e7d8f;
+}
+.app .demo-pill {
+  font-size: 11px;
+  color: #3f6d55;
+  background: #f2f8f4;
+  border-color: #d6e7dc !important;
+}
+.app .nav-item {
+  font-size: 13px;
+  color: #4b697d;
+  font-weight: 550;
+  min-height: 38px;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.app .nav-item.active {
+  color: #125774;
+  background: #e9f3f9;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px #dcecf4;
+}
+.app .nav-item:hover {
+  background: #f1f6fa;
+  color: #1a5571;
+}
+.app .nav-item.active:after {
+  background: var(--polish-coral);
+  width: 5px;
+  height: 5px;
+}
+.app .nav-group-toggle {
+  font-size: 11px;
+  color: #526f81;
+  letter-spacing: 0.9px;
+}
+.app .nav-group.has-active > .nav-group-toggle {
+  color: #315e77;
+}
+.app .nav-count {
+  font-size: 11px;
+  color: #476a80;
+  background: #e3edf4;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+.app .org-switch {
+  border-radius: 9px;
+  background: #f7fafc;
+  border-color: #dae5ed !important;
+}
+.app .org-switch strong {
+  font-size: 12px;
+  color: #31576d;
+}
+.app .org-switch small {
+  font-size: 11px;
+  color: #587285;
+}
+.app .sidebar-bottom .plan-card {
+  border-radius: 8px;
+}
+.app .sidebar-bottom .plan-card p,
+.app .sidebar-bottom .plan-card a {
+  font-size: 11px;
+  color: #486b80;
+  white-space: normal;
+  line-height: 1.6;
+}
+.app .sidebar-bottom .plan-card {
+  align-items: flex-start;
+  gap: 10px;
+}
+.app .sidebar-bottom .help {
+  font-size: 12px;
+  color: #4e6d80;
+  line-height: 1.6;
+}
+.app .user strong {
+  font-size: 12px;
+}
+.app .user small {
+  font-size: 11px;
+  color: #597486;
+}
+.app .user-avatar,
+.app .top-avatar {
+  color: #325f7a;
+  background: #e8f2f8;
+  font-size: 11px;
+}
+.app .sidebar-collapse {
+  color: #4a7087;
+}
+.app .page-heading {
+  margin-bottom: 27px;
+}
+.app h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.3;
+  color: #173d53;
+}
+.app h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #244c63;
+  line-height: 1.45;
+  letter-spacing: -0.4px;
+}
+.app h3 {
+  font-size: 16px;
+  font-weight: 650;
+  color: #2b5269;
+  line-height: 1.5;
+}
+.app .page-heading p {
+  font-size: 14px;
+  color: #536e80;
+  line-height: 1.8;
+  margin-top: 9px;
+}
+.app .eyebrow {
+  font-size: 11px;
+  color: #496e85;
+  letter-spacing: 1.2px;
+  line-height: 1.8;
+}
+.app p {
+  font-size: 14px;
+  color: #506c7e;
+  line-height: 1.75;
+}
+.app small {
+  font-size: 12px;
+  color: #526d80;
+  line-height: 1.7;
+}
+.app .btn {
+  font-size: 12px;
+  border-radius: 8px;
+  font-weight: 650;
+  min-height: 36px;
+  padding: 10px 14px;
+}
+.app .btn-primary {
+  background: #146c91;
+  box-shadow: 0 2px 5px #174d6610;
+  color: #fff;
+  border-color: #146c91;
+}
+.app .btn-primary:hover {
+  background: #0b5d7f;
+}
+.app .btn-outline {
+  border-color: #bdcfdb;
+  color: #315f78;
+  background: #fff;
+  box-shadow: 0 1px 3px #173b4f03;
+}
+.app .btn-outline:hover {
+  background: #f1f7fa;
+  border-color: #90b5c9;
+}
+.app .btn-ghost {
+  color: #4d7187;
+}
+.app .btn-ghost:hover {
+  background: #edf4f8;
+  color: #175777;
+}
+.app .btn-icon {
+  width: 35px;
+  height: 35px;
+  min-height: 35px;
+  padding: 8px;
+}
+.app .btn-sm {
+  font-size: 12px;
+  min-height: 34px;
+  padding: 8px 11px;
+}
+.app .badge,
+.app .tags .badge {
+  font-size: 11px;
+  line-height: 1.4;
+  border-radius: 5px;
+  padding: 4px 7px;
+  color: #4f6b7d;
+  background: #f4f8fb;
+  border-color: #dbe6ed;
+  font-weight: 550;
+}
+.app .badge-blue {
+  color: #236585;
+  background: #edf6fb;
+  border-color: #d4e8f3;
+}
+.app .badge-green {
+  color: #2f6f53;
+  background: #edf7f1;
+  border-color: #d4e9dc;
+}
+.app .badge-amber {
+  color: #985126;
+  background: #fff3ea;
+  border-color: #f2ddcc;
+}
+.app .panel,
+.app .company-card,
+.app .metric-card {
+  border-radius: var(--polish-radius);
+  border-color: #dce6ed;
+  box-shadow: 0 2px 6px #183b5003;
+  background: #fff;
+}
+.app .padded {
+  padding: 25px;
+}
+.app .section-title {
+  margin-bottom: 22px;
+}
+.app .section-title p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #5a7486;
+}
+.app .text-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: #216b8d;
+  line-height: 1.7;
+}
+.app .table-title {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  color: #315a72;
+}
+.app th {
+  font-size: 11px;
+  letter-spacing: 0.15px;
+  font-weight: 650;
+  color: #4b6b81;
+  background: #f7fafc;
+  padding: 14px 18px;
+  border-color: #dce7ef;
+}
+.app td {
+  font-size: 13px;
+  color: #345b73;
+  padding: 17px 18px;
+  border-color: #e7eef3;
+  line-height: 1.65;
+  vertical-align: middle;
+}
+.app td small,
+.app .table-sub-link {
+  font-size: 12px;
+  color: #597488;
+  line-height: 1.7;
+}
+.app td .badge {
+  font-size: 11px;
+}
+.app tbody tr:hover {
+  background: #f7fbfd;
+}
+.app .offer-count {
+  width: 26px;
+  height: 26px;
+  font-size: 12px;
+  border-radius: 6px;
+  color: #406b83;
+  background: #f0f6fa;
+  border-color: #d8e7f0;
+}
+.app .table-bottom-link {
+  font-size: 12px;
+  color: #386f8c;
+  padding: 15px 22px;
+  background: #fbfdfe;
+  border-color: #e1ebf2;
+  font-weight: 550;
+  line-height: 1.7;
+}
+.app .daily-metrics {
+  border-radius: 12px;
+  padding: 23px 0;
+  border-color: #dce7ef;
+  box-shadow: 0 2px 6px #183b5003;
+}
+.app .daily-metrics > a {
+  padding: 0 21px;
+  row-gap: 13px;
+}
+.app .daily-metrics span {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #516e81;
+}
+.app .daily-metrics strong {
+  font-size: 29px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  color: #244e67;
+}
+.app .daily-metrics > a > svg:first-child {
+  color: #4b819d;
+}
+.app .attention-panel {
+  border-top: 3px solid #f08055;
+  border-radius: 12px;
+  box-shadow: 0 5px 16px #183b5005;
+}
+.app .inbox-row {
+  padding: 17px 22px;
+  gap: 13px;
+  border-color: #e5edf3;
+  background: #fff;
+}
+.app .inbox-row.is-unread {
+  background: #fcfeff;
+}
+.app .inbox-item-body > a {
+  font-size: 14px;
+  color: #2d556f;
+  line-height: 1.65;
+}
+.app .inbox-item-body > a strong {
+  font-weight: 650;
+}
+.app .inbox-item-body p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #526f82;
+  margin: 6px 0 0;
+}
+.app .inbox-item-body > small {
+  display: none;
+}
+.app .inbox-item-body > div {
+  gap: 9px;
+  margin-bottom: 9px;
+}
+.app .inbox-item-body .badge {
+  font-size: 11px;
+}
+.app .inbox-item-body > div small {
+  font-size: 11px;
+  color: #8e572e;
+}
+.app .unread-label {
+  font-size: 11px;
+  color: #346c8b;
+  font-weight: 600;
+}
+.app .inbox-row .btn {
+  font-size: 11px;
+  color: #456d85;
+  min-height: 34px;
+}
+.app .inbox-row.is-read .inbox-item-body > a {
+  color: #4e6c7f;
+}
+.app .inbox-indicator.priority {
+  background: #cf5b2c;
+}
+.app .inbox-indicator {
+  background: #4f88a7;
+}
+.app .inbox-notice {
+  border-radius: 10px;
+  border-color: #d6e6f0;
+  background: #eff6fa;
+  padding: 18px 21px;
+}
+.app .inbox-notice strong {
+  font-size: 13px;
+  color: #315f7a;
+}
+.app .inbox-notice p {
+  font-size: 12px;
+  color: #4f7087;
+  line-height: 1.8;
+}
+.app .inbox-toolbar {
+  padding: 21px 22px;
+  gap: 22px;
+}
+.app .inbox-toolbar > input {
+  font-size: 13px;
+  border-color: #c9dce7;
+  border-radius: 8px;
+  background: #fafcfe;
+  min-height: 43px;
+}
+.app .inbox-toolbar label {
+  font-size: 12px;
+  color: #456b83;
+}
+.app .inbox-categories {
+  gap: 21px;
+}
+.app .inbox-categories button {
+  font-size: 12px;
+  color: #536f82;
+  min-height: 46px;
+}
+.app .inbox-categories button.selected {
+  color: #195f82;
+  border-bottom-color: #d65c2d !important;
+  font-weight: 650;
+}
+.app .inbox-categories button span {
+  font-size: 11px;
+  background: #edf4f8;
+  color: #466c85;
+  border-radius: 5px;
+}
+.app .inbox-result-count {
+  font-size: 12px;
+  background: #f7fafc;
+  color: #557184;
+  line-height: 1.7;
+  padding: 13px 22px;
+}
+.app .conversation-summary {
+  padding: 17px 0;
+  gap: 13px;
+}
+.app .conversation-summary strong {
+  font-size: 13px;
+  color: #325e78;
+  line-height: 1.7;
+}
+.app .conversation-summary p {
+  font-size: 12px;
+  color: #567387;
+  line-height: 1.8;
+}
+.app .conversation-summary > svg {
+  color: #4c819f;
+}
+.app .daily-next {
+  background: #f0f7fb;
+  border-color: #d8e7f0;
+  border-radius: 12px;
+  padding: 26px;
+}
+.app .daily-next .eyebrow {
+  font-size: 11px;
+  color: #4b748d;
+  line-height: 1.7;
+}
+.app .daily-next h2 {
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: -0.7px;
+  color: #315d77;
+  line-height: 1.4;
+}
+.app .daily-next p {
+  font-size: 13px;
+  color: #537388;
+  line-height: 1.8;
+}
+.app .daily-next > a {
+  font-size: 12px;
+  color: #286987;
+  padding-top: 16px;
+  line-height: 1.8;
+}
+.app .activity-row {
+  font-size: 13px;
+  color: #4d7087;
+  padding: 15px 0;
+  line-height: 1.8;
+}
+.app .activity-row small {
+  font-size: 11px;
+  color: #5c788a;
+}
+.app .company-name {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: #2b566f;
+  line-height: 1.5;
+}
+.app .company-card {
+  padding: 21px 19px 0;
+}
+.app .company-card .location,
+.app .location {
+  font-size: 12px;
+  color: #526e80;
+  line-height: 1.7;
+}
+.app .company-description {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #506c7f;
+  min-height: 46px;
+}
+.app .species-line {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #446d86;
+  margin-top: 14px;
+}
+.app .card-capabilities {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #526e80;
+  margin-top: 6px;
+  min-height: 22px;
+}
+.app .card-completeness {
+  font-size: 11px;
+  color: #546f81;
+  line-height: 1.7;
+  margin-top: 12px;
+}
+.app .card-completeness strong {
+  color: #396d89;
+  font-weight: 600;
+}
+.app .company-card-bottom {
+  padding: 15px 0;
+  margin-top: 15px;
+  border-color: #e3edf3;
+}
+.app .certs > span {
+  font-size: 11px;
+  color: #397258;
+  gap: 4px;
+}
+.app .company-card .tags {
+  gap: 6px;
+  margin: 13px 0;
+}
+.app .company-avatar {
+  width: 43px;
+  height: 43px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.app .company-card-top {
+  margin-bottom: 16px;
+}
+.app .avatar-large {
+  width: 83px;
+  height: 83px;
+  font-size: 26px;
+}
+.app .network-tabs button {
+  font-size: 13px;
+  color: #4d7087;
+  line-height: 1.7;
+  gap: 8px;
+}
+.app .network-tabs button.selected {
+  color: #185f81;
+  border-bottom-color: #d65c2d !important;
+}
+.app .network-tabs button span {
+  font-size: 11px;
+  color: #446b84;
+  background: #e8f1f7;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+.app .filter-panel {
+  padding: 20px;
+  border-radius: 12px;
+}
+.app .filter-heading strong {
+  font-size: 14px;
+  color: #315a72;
+}
+.app .filter-heading button {
+  font-size: 12px;
+  color: #1c6a8b;
+}
+.app .filter-field > span {
+  font-size: 12px;
+  color: #3d627b;
+  margin-bottom: 9px;
+  font-weight: 600;
+}
+.app .filter-field select {
+  font-size: 12px;
+  color: #405f75;
+  border-color: #c7d9e5;
+  padding: 10px 9px;
+  border-radius: 7px;
+  min-height: 39px;
+}
+.app .filter-note p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #526f82;
+}
+.app .search-input {
+  padding: 9px 16px;
+  border-color: #ccdee8;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px #183b5003;
+}
+.app .search-input input {
+  font-size: 13px;
+  color: #345a72;
+  min-height: 33px;
+}
+.app .smart-search {
+  padding: 20px;
+  border-radius: 12px;
+  border-color: #d0e3ee;
+  background: #eef7fc;
+}
+.app .smart-search > div:first-child {
+  font-size: 13px;
+  color: #326f8c;
+  line-height: 1.7;
+}
+.app .smart-search .badge {
+  font-size: 11px;
+}
+.app .smart-search p {
+  font-size: 12px;
+  color: #4f7085;
+  line-height: 1.8;
+  margin: 12px 0 15px;
+}
+.app .smart-search input {
+  font-size: 12px;
+  padding: 11px;
+  color: #345e77;
+  border-color: #c4dce9;
+  min-height: 40px;
+  border-radius: 7px;
+}
+.app .smart-search small {
+  font-size: 11px;
+  color: #54768c;
+  line-height: 1.8;
+  margin-top: 13px;
+}
+.app .smart-search .smart-result {
+  color: #306e57;
+}
+.app .results-toolbar {
+  font-size: 13px;
+  color: #4e6d82;
+  line-height: 1.7;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+.app .results-toolbar strong {
+  color: #254f68;
+}
+.app .results-toolbar select {
+  font-size: 12px;
+  color: #426a83;
+  border-color: #c4d8e5;
+  border-radius: 7px;
+  padding: 8px 10px;
+}
+.app .active-filters button {
+  font-size: 12px;
+  color: #255f7c;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: #e8f3fa;
+}
+.app .org-tabs {
+  gap: 25px;
+}
+.app .org-tabs a {
+  font-size: 13px;
+  color: #4d6d82;
+  padding-bottom: 16px;
+  line-height: 1.8;
+}
+.app .org-tabs a[aria-current="page"] {
+  color: #145c7f;
+  border-bottom-color: #d85b2d;
+}
+.app .organization-area-title p {
+  font-size: 12px;
+  color: #557185;
+  line-height: 1.8;
+}
+.app .organization-area-title h2 {
+  font-size: 25px;
+  color: #2a526c;
+  font-weight: 700;
+}
+.app .organization-area-title {
+  margin-bottom: 22px;
+}
+.app .field > span {
+  font-size: 13px;
+  color: #3e627a;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.app .field input,
+.app .field textarea,
+.app .field select {
+  font-size: 14px;
+  border-color: #c8dae6;
+  border-radius: 8px;
+  padding: 12px;
+  color: #284f68;
+  line-height: 1.6;
+}
+.app .field small {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #536e80;
+}
+.app .field {
+  margin-bottom: 23px;
+  gap: 9px;
+}
+.app .organization-preview > p {
+  font-size: 13px;
+  color: #536f83;
+  line-height: 1.8;
+}
+.app .organization-preview h2 {
+  font-size: 23px;
+}
+.app .organization-preview .org-big {
+  border-radius: 14px;
+  background: #e8f2f6;
+  color: #4b778e;
+}
+.app .notice {
+  font-size: 12px;
+  border-radius: 10px;
+  border-color: #d7e7f0;
+  background: #f1f7fa;
+  color: #4e6e82;
+  padding: 17px 18px;
+  line-height: 1.85;
+}
+.app .notice p {
+  font-size: 12px;
+  color: #4e6e82;
+  line-height: 1.85;
+}
+.app .notice strong {
+  font-size: 12px;
+  color: #3c627a;
+}
+.app .fine-print {
+  font-size: 12px;
+  color: #5a7588;
+  line-height: 1.8;
+}
+.app .summary-strip {
+  border-radius: 12px;
+  padding: 23px 0;
+  border-color: #dce7ef;
+}
+.app .summary-strip span {
+  font-size: 12px;
+  color: #4e6d81;
+  line-height: 1.7;
+}
+.app .summary-strip strong {
+  font-size: 28px;
+  font-weight: 650;
+  color: #2b536c;
+}
+.app .list-toolbar {
+  padding: 18px 21px;
+  gap: 17px;
+}
+.app .list-toolbar > input {
+  font-size: 13px;
+  padding: 11px 12px;
+  border-color: #c8dce7;
+  border-radius: 8px;
+  min-height: 41px;
+}
+.app .list-toolbar > strong {
+  font-size: 14px;
+  color: #345c75;
+}
+.app .tabs {
+  gap: 23px;
+}
+.app .tabs button {
+  font-size: 12px;
+  color: #4e6d82;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  line-height: 1.7;
+}
+.app .tabs .selected {
+  color: #175f81;
+  border-bottom-color: #d95f31 !important;
+}
+.app .page-tabs button {
+  font-size: 13px;
+}
+.app .inline-label {
+  font-size: 12px;
+  color: #4c6d83;
+  line-height: 1.7;
+}
+.app .inline-label select {
+  font-size: 13px;
+  color: #345e77;
+  border-color: #c4d9e5;
+  border-radius: 8px;
+  min-height: 40px;
+}
+.app .setting-row strong {
+  font-size: 14px;
+  color: #355b73;
+}
+.app .setting-row p {
+  font-size: 13px;
+  color: #526f82;
+}
+.app .settings-nav button {
+  font-size: 13px;
+  border-radius: 8px;
+  color: #4d7087;
+}
+.app .settings-nav button.selected {
+  background: #eaf4fa;
+  color: #145e80;
+}
+.app .plan-option {
+  border-radius: 12px;
+  border-color: #d7e5ee;
+}
+.app .plan-option p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app .plan-option small {
+  font-size: 12px;
+}
+.app .plan-option.chosen {
+  border-color: #8bb7cd;
+  background: #f5fbfe;
+}
+.app .team-row strong {
+  font-size: 14px;
+  color: #355e77;
+}
+.app .team-row small {
+  font-size: 12px;
+  color: #536e82;
+}
+.app .team-row .badge {
+  font-size: 11px;
+}
+.app .team-row .btn {
+  font-size: 12px;
+}
+.app .business-summary {
+  border-radius: 12px;
+  border-color: #dce7ef;
+}
+.app .business-summary span {
+  font-size: 13px;
+  color: #506f83;
+  line-height: 1.7;
+}
+.app .business-summary strong {
+  font-size: 29px;
+  color: #2c556e;
+  font-weight: 650;
+}
+.app .stat-line {
+  font-size: 13px;
+  color: #4d6f84;
+  line-height: 1.8;
+}
+.app .stat-line strong {
+  font-size: 20px;
+  color: #345f78;
+}
+.app .detail-grid small {
+  font-size: 12px;
+  color: #536f82;
+  line-height: 1.7;
+}
+.app .detail-grid strong {
+  font-size: 14px;
+  color: #365d74;
+  line-height: 1.75;
+}
+.app .detail-grid p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.app .body-copy {
+  font-size: 14px;
+  color: #506e81;
+  line-height: 1.9;
+}
+.app .stepper {
+  font-size: 12px;
+  color: #557386;
+  line-height: 1.7;
+}
+.app .stepper .current {
+  color: #1c6788;
+  font-weight: 600;
+}
+.app .check-list li {
+  font-size: 13px;
+  color: #526f82;
+  line-height: 1.8;
+}
+.app .supplier-info > a {
+  font-size: 14px;
+}
+.app .supplier-info > small {
+  font-size: 12px;
+  color: #587487;
+}
+.app .supplier-row li {
+  font-size: 12px;
+  color: #527084;
+  line-height: 1.8;
+}
+.app .table-scroll {
+  background: #fff;
+}
+.app .notification-pop,
+.app .sidebar-pop {
+  background: #fff;
+  border: 1px solid #d7e5ee;
+  border-radius: 12px;
+  box-shadow:
+    0 7px 20px #193d5510,
+    0 20px 50px #193d5508;
+}
+.app .notification-pop h3 {
+  font-size: 16px;
+}
+.app .notification-pop p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app .notification-pop a {
+  font-size: 12px;
+}
+.app .sidebar-pop {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app .sidebar-pop small {
+  font-size: 12px;
+}
+.app .sidebar-pop p {
+  font-size: 13px;
+}
+.app .toast {
+  border-radius: 12px;
+  background: #17465d;
+  color: #fff;
+  box-shadow:
+    0 5px 15px #12364a20,
+    0 16px 40px #12364a18;
+  font-size: 13px;
+  line-height: 1.7;
+  border-color: #31687d;
+}
+.app .modal {
+  border-radius: 14px;
+  border-color: #d2e1eb;
+  box-shadow: 0 20px 80px #12364a30;
+}
+.app .modal-heading {
+  padding: 20px 25px;
+}
+.app .modal-heading h2 {
+  font-size: 19px;
+}
+.app .modal-body > p {
+  font-size: 14px;
+  color: #506e82;
+  line-height: 1.85;
+}
+.app input::placeholder,
+.app textarea::placeholder {
+  color: #5d7b8e;
+  opacity: 1;
+}
+.app input:focus,
+.app select:focus,
+.app textarea:focus {
+  border-color: #368aac;
+  box-shadow: 0 0 0 3px #0c7b9f13;
+}
+.app a:focus-visible,
+.app button:focus-visible {
+  outline: 3px solid #08799e;
+  outline-offset: 3px;
+}
+.app .nav-item:focus-visible {
+  outline-offset: -2px;
+}
+.app .nav-group-toggle:focus-visible {
+  outline-offset: -3px;
+}
+.app .table-title:hover {
+  color: #087799;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.app footer {
+  font-size: 11px;
+  color: #55758a;
+  line-height: 1.8;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.app footer > span,
+.app footer button {
+  font-size: 11px;
+  color: #55758a;
+}
+.app .thread-heading strong {
+  font-size: 14px;
+  color: #2a536c;
+}
+.app .thread-heading small {
+  font-size: 12px;
+  color: #587588;
+}
+.app .conversation strong {
+  font-size: 13px;
+  color: #365e76;
+}
+.app .conversation span:not(.company-avatar):not(.avatar-wave) {
+  font-size: 12px;
+  color: #4e7187;
+}
+.app .conversation small {
+  font-size: 12px;
+  color: #5c778a;
+}
+.app .bubble p {
+  font-size: 14px;
+  color: #3f637a;
+  line-height: 1.85;
+}
+.app .bubble small {
+  font-size: 11px;
+  color: #58768a;
+}
+.app .thread-date {
+  font-size: 11px;
+  color: #546f81;
+}
+.app .message-compose textarea {
+  font-size: 14px;
+}
+.app .message-compose small {
+  font-size: 12px;
+  color: #536e81;
+}
+.app .capacity-company {
+  font-size: 13px;
+  color: #4d7289;
+}
+.app .capacity-date {
+  font-size: 12px;
+  color: #536f82;
+  line-height: 1.8;
+}
+.app .capacity-number > span {
+  font-size: 13px;
+  color: #5a7487;
+}
+.app .capacity-card .company-name {
+  font-size: 18px;
+}
+.app .capacity-card-top .badge {
+  font-size: 11px;
+}
+.app .empty p {
+  font-size: 14px;
+  color: #536f82;
+  line-height: 1.8;
+}
+.app .empty h3 {
+  font-size: 20px;
+}
+.app .recently strong {
+  font-size: 12px;
+}
+.app .recently small {
+  font-size: 12px;
+}
+.app .company-grid {
+  gap: 20px;
+}
+.app .commercial-card h3 {
+  font-size: 20px;
+}
+.app .commercial-card p {
+  font-size: 14px;
+}
+.app .commercial-card .btn {
+  font-size: 12px;
+}
+.app .capability-grid strong {
+  font-size: 12px;
+  color: #426d84;
+}
+.app .capability-grid > div {
+  border-radius: 9px;
+}
+.app .certification strong {
+  font-size: 14px;
+}
+.app .certification small {
+  font-size: 12px;
+  color: #577588;
+}
+.app .checkbox-row label {
+  font-size: 13px;
+  color: #4a6b81;
+}
+.app .network-footnote {
+  font-size: 12px;
+  color: #56758a;
+}
+.app .network-footnote > span:last-child {
+  font-size: 11px;
+}
+.app .tabs button span {
+  font-size: 11px;
+}
+.app .team-avatar {
+  font-size: 12px;
+}
+@supports (
+  (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))
+) {
+  .home3-site .public-nav {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .home3-site .public-nav nav.public-menu-open {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .h3-product-chrome {
+    background: rgba(247, 251, 253, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .app .notification-pop,
+  .app .sidebar-pop {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+}
+@media (max-width: 1150px) {
+  .h3-hero {
+    gap: 32px;
+  }
+  .h3-preview-heading h3 {
+    font-size: 18px;
+  }
+  .h3-preview-row strong {
+    font-size: 12px;
+  }
+  .h3-preview-row > div > span {
+    font-size: 11px;
+  }
+  .h3-preview-metrics span {
+    font-size: 11px;
+  }
+  .h3-preview-section {
+    font-size: 12px;
+  }
+  .h3-product-tabs > button {
+    font-size: 12px;
+  }
+  .app .daily-metrics > a {
+    padding: 0 15px;
+  }
+  .app .daily-metrics span {
+    font-size: 11px;
+  }
+  .app .inbox-row .btn span {
+    display: none;
+  }
+  .app .company-name {
+    font-size: 15px;
+  }
+  .app .company-card {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (max-width: 900px) {
+  .h3-hero {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    gap: 30px;
+  }
+  .h3-hero-scene {
+    padding-top: 86px;
+    padding-bottom: 0;
+    min-height: 0;
+  }
+  .h3-industrial {
+    top: 0;
+    right: -10px;
+    height: 330px;
+    width: 90%;
+  }
+  .h3-product-main {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .h3-preview-heading h3 {
+    font-size: 21px;
+  }
+  .h3-preview-row strong {
+    font-size: 13px;
+  }
+  .h3-preview-row > div > span,
+  .h3-preview-metrics span {
+    font-size: 12px;
+  }
+  .h3-product-tabs > button {
+    font-size: 13px;
+  }
+  .h3-preview-section {
+    font-size: 13px;
+  }
+  .h3-country-tabs button {
+    font-size: 13px;
+  }
+  .h3-board-top > span {
+    font-size: 14px;
+  }
+  .h3-board-top > a {
+    font-size: 12px;
+  }
+  .h3-planned strong {
+    font-size: 13px;
+  }
+  .h3-planned p > span {
+    font-size: 12px;
+  }
+  .h3-pricing > article > span {
+    font-size: 11px;
+  }
+  .h3-pricing li {
+    font-size: 14px;
+  }
+  .app .daily-metrics > a {
+    padding: 0 12px;
+  }
+  .app .daily-metrics span {
+    font-size: 11px;
+  }
+  .app .org-tabs {
+    gap: 22px;
+  }
+}
+@media (min-width: 761px) {
+  .compact-sidebar .nav-item {
+    padding: 10px;
+    min-height: 42px;
+  }
+  .compact-sidebar .sidebar-collapse {
+    position: static;
+  }
+}
+@media (max-width: 760px) {
+  .app .topbar {
+    height: 63px;
+    gap: 10px;
+  }
+  .app .breadcrumb {
+    font-size: 11px;
+    gap: 7px;
+  }
+  .app .top-actions {
+    gap: 7px;
+  }
+  .app .demo-pill {
+    font-size: 10px;
+    padding: 5px 7px;
+    gap: 5px;
+  }
+  .app h1 {
+    font-size: 26px;
+    letter-spacing: -0.85px;
+  }
+  .app .page-heading p,
+  .app .daily-heading p {
+    font-size: 13px !important;
+    line-height: 1.8;
+    max-width: none;
+  }
+  .app h2 {
+    font-size: 17px;
+  }
+  .app .eyebrow,
+  .app .daily-heading .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.9px;
+  }
+  .app .padded {
+    padding: 21px;
+  }
+  .app .page-heading {
+    gap: 17px;
+  }
+  .app .page-heading > .btn,
+  .app .daily-heading .btn {
+    font-size: 12px;
+    padding: 10px 12px;
+    min-height: 38px;
+  }
+  .app .page-heading {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .app .daily-metrics {
+    padding: 20px 0;
+    row-gap: 22px;
+  }
+  .app .daily-metrics > a {
+    padding: 0 13px;
+    row-gap: 10px;
+  }
+  .app .daily-metrics span {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .app .daily-metrics strong {
+    font-size: 26px;
+  }
+  .app .daily-metrics > a > svg:first-child {
+    width: 15px;
+  }
+  .app .attention-panel .section-title {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .app .attention-panel .section-title h2 {
+    font-size: 17px;
+  }
+  .app .attention-panel .section-title p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .app .attention-panel .section-title .badge {
+    font-size: 11px;
+  }
+  .app .inbox-row {
+    padding: 16px;
+    gap: 10px;
+  }
+  .app .inbox-row .btn {
+    width: 33px;
+    min-width: 33px;
+    min-height: 34px;
+    padding: 8px;
+  }
+  .app .inbox-item-body > a {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .app .inbox-item-body p {
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 7px;
+  }
+  .app .inbox-item-body .badge {
+    font-size: 11px;
+  }
+  .app .inbox-item-body > div small,
+  .app .unread-label {
+    font-size: 11px;
+  }
+  .app .inbox-item-body > div {
+    gap: 7px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .app .inbox-notice strong {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .app .inbox-notice p {
+    font-size: 12px;
+  }
+  .app .inbox-toolbar {
+    padding: 18px;
+    gap: 16px;
+  }
+  .app .inbox-toolbar > input {
+    font-size: 13px;
+  }
+  .app .inbox-toolbar label {
+    font-size: 12px;
+  }
+  .app .inbox-categories {
+    gap: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .app .inbox-categories button {
+    font-size: 12px;
+    min-height: 45px;
+  }
+  .app .inbox-categories button span {
+    font-size: 11px;
+  }
+  .app .inbox-result-count {
+    font-size: 12px;
+    padding: 13px 18px;
+  }
+  .app .daily-next {
+    padding: 23px;
+  }
+  .app .daily-next h2 {
+    font-size: 24px;
+  }
+  .app .conversation-summary strong {
+    font-size: 13px;
+  }
+  .app .conversation-summary p {
+    font-size: 12px;
+  }
+  .app .daily-next .eyebrow {
+    font-size: 11px;
+  }
+  .app .daily-next p {
+    font-size: 13px;
+  }
+  .app .daily-next > a {
+    font-size: 12px;
+  }
+  .app .company-grid {
+    gap: 12px;
+  }
+  .app .company-card {
+    padding: 16px 13px 0;
+  }
+  .app .company-card-top {
+    margin-bottom: 14px;
+  }
+  .app .company-name {
+    font-size: 14px;
+    line-height: 1.55;
+    letter-spacing: -0.3px;
+    overflow-wrap: anywhere;
+  }
+  .app .company-description {
+    font-size: 12px;
+    line-height: 1.8;
+    min-height: 42px;
+  }
+  .app .company-card .location,
+  .app .location {
+    font-size: 11px;
+    line-height: 1.8;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .app .location > svg {
+    margin-top: 3px;
+  }
+  .app .company-card .tags .badge {
+    font-size: 11px;
+    padding: 3px 5px;
+    line-height: 1.5;
+  }
+  .app .species-line {
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 12px;
+  }
+  .app .card-capabilities {
+    font-size: 11px;
+    line-height: 1.9;
+    min-height: 36px;
+  }
+  .app .card-completeness {
+    font-size: 11px;
+    line-height: 1.7;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .app .certs {
+    gap: 7px;
+  }
+  .app .certs > span {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .app .company-card-bottom {
+    gap: 10px;
+    padding: 13px 0;
+    margin-top: 13px;
+    flex-wrap: wrap;
+  }
+  .app .filter-panel {
+    padding: 18px;
+    gap: 16px 12px;
+  }
+  .app .filter-heading {
+    margin-bottom: 4px;
+  }
+  .app .filter-heading strong {
+    font-size: 14px;
+  }
+  .app .filter-heading button {
+    font-size: 12px;
+  }
+  .app .filter-field > span {
+    font-size: 12px;
+  }
+  .app .filter-field select {
+    font-size: 12px;
+    padding: 10px 7px;
+    min-height: 39px;
+  }
+  .app .search-input {
+    padding: 8px 12px;
+    gap: 9px;
+  }
+  .app .search-input input {
+    font-size: 12px;
+    line-height: 1.7;
+    min-height: 34px;
+  }
+  .app .smart-search {
+    padding: 18px;
+  }
+  .app .smart-search > div:first-child {
+    font-size: 13px;
+  }
+  .app .smart-search p {
+    font-size: 12px;
+    line-height: 1.85;
+  }
+  .app .smart-search input {
+    font-size: 12px;
+    min-width: 0;
+    padding: 10px;
+  }
+  .app .smart-search .btn {
+    font-size: 11px;
+    padding: 10px;
+    gap: 6px;
+    min-height: 40px;
+  }
+  .app .smart-search small {
+    font-size: 11px;
+    line-height: 1.9;
+  }
+  .app .results-toolbar {
+    font-size: 12px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .app .results-toolbar label {
+    font-size: 0;
+  }
+  .app .results-toolbar select {
+    font-size: 12px;
+    max-width: 175px;
+  }
+  .app .network-tabs {
+    gap: 20px;
+  }
+  .app .network-tabs button {
+    font-size: 12px;
+    gap: 7px;
+  }
+  .app .network-tabs button span {
+    font-size: 11px;
+  }
+  .app th {
+    font-size: 11px;
+    padding: 13px 15px;
+  }
+  .app td {
+    font-size: 13px;
+    padding: 15px;
+    line-height: 1.7;
+  }
+  .app .table-title {
+    font-size: 13px;
+  }
+  .app td small,
+  .app .table-sub-link {
+    font-size: 12px;
+  }
+  .app .tabs {
+    gap: 17px;
+  }
+  .app .tabs button {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .app .list-toolbar {
+    padding: 17px;
+  }
+  .app .list-toolbar > input {
+    font-size: 13px;
+  }
+  .app .summary-strip span {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .app .summary-strip strong {
+    font-size: 26px;
+  }
+  .app .org-tabs a {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .app .organization-area-title .eyebrow {
+    font-size: 11px;
+  }
+  .app .organization-area-title p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .app .organization-area-title h2 {
+    font-size: 25px;
+    line-height: 1.4;
+  }
+  .app .field > span {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .app .field input,
+  .app .field textarea,
+  .app .field select {
+    font-size: 13px;
+    padding: 11px;
+    line-height: 1.6;
+  }
+  .app .form-grid {
+    gap: 0 14px;
+  }
+  .app .notice,
+  .app .notice p {
+    font-size: 12px;
+    line-height: 1.85;
+  }
+  .app .section-title p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .app .fine-print {
+    font-size: 12px;
+  }
+  .app .team-row strong {
+    font-size: 13px;
+  }
+  .app .team-row small {
+    font-size: 12px;
+  }
+  .app .team-row .badge {
+    font-size: 11px;
+  }
+  .app .team-row > .btn {
+    font-size: 12px;
+  }
+  .app .team-row > div {
+    min-width: 145px;
+  }
+  .app .business-summary > a {
+    padding: 18px;
+    row-gap: 15px;
+  }
+  .app .business-summary span {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .app .business-summary strong {
+    font-size: 26px;
+  }
+  .app .activity-row {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .app .inline-label {
+    font-size: 12px;
+  }
+  .app .inline-label select {
+    font-size: 13px;
+  }
+  .app .page-tabs button {
+    font-size: 13px;
+  }
+  .app .heading-actions .btn {
+    font-size: 12px;
+  }
+  .app .stepper {
+    font-size: 11px;
+    gap: 9px;
+  }
+  .app .stepper > span {
+    gap: 6px;
+  }
+  .app .detail-grid strong,
+  .app .detail-grid p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .app .detail-grid small {
+    font-size: 12px;
+  }
+  .app .profile-header h1 {
+    font-size: 24px;
+  }
+  .app .profile-actions .btn {
+    font-size: 12px;
+  }
+  .app .thread-heading strong {
+    font-size: 13px;
+  }
+  .app .thread-heading small {
+    font-size: 12px;
+  }
+  .app .bubble p {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .app .bubble small {
+    font-size: 11px;
+  }
+  .app .message-compose textarea {
+    font-size: 13px;
+  }
+  .app .message-compose small {
+    font-size: 11px;
+  }
+  .app .message-compose .btn {
+    font-size: 12px;
+  }
+  .app .settings-nav button {
+    font-size: 12px;
+    padding: 11px;
+  }
+  .app .setting-row p {
+    font-size: 13px;
+  }
+  .app .setting-row strong {
+    font-size: 14px;
+  }
+  .app footer {
+    font-size: 11px;
+    padding-left: 18px;
+    padding-right: 18px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .app footer button {
+    font-size: 11px;
+  }
+  .app .toast {
+    font-size: 12px;
+  }
+  .app .modal-heading h2 {
+    font-size: 18px;
+  }
+  .app .modal-body > p {
+    font-size: 13px;
+  }
+  .app .capability-grid strong {
+    font-size: 12px;
+  }
+  .app .supplier-info > a {
+    font-size: 13px;
+  }
+  .app .supplier-info > small {
+    font-size: 12px;
+  }
+  .app .supplier-row li {
+    font-size: 12px;
+  }
+}
+@media (max-width: 700px) {
+  .h3-hero {
+    padding-top: 30px;
+    padding-bottom: 38px;
+    gap: 24px;
+  }
+  .h3-hero h1 {
+    letter-spacing: -1.65px;
+  }
+  .h3-hero-copy > p {
+    font-size: 16px;
+    line-height: 1.85;
+    margin-top: 27px;
+    margin-bottom: 24px;
+  }
+  .h3-hero-actions {
+    gap: 19px;
+  }
+  .h3-hero-scene {
+    padding-top: 56px;
+    padding-bottom: 0;
+    min-height: 0;
+  }
+  .h3-industrial {
+    top: 1px;
+    right: -8px;
+    width: 92%;
+    height: 245px;
+    border-radius: 19px;
+    transform: none;
+  }
+  .h3-industrial img {
+    opacity: 0.52;
+    filter: blur(0.8px) saturate(0.82);
+  }
+  .h3-industrial > span {
+    font-size: 11px;
+    top: 10px;
+    right: 11px;
+    padding: 4px 7px;
+  }
+  .h3-product {
+    border-radius: 15px;
+    box-shadow:
+      0 3px 6px #183d5106,
+      0 12px 28px #17476014;
+  }
+  .h3-product-chrome {
+    padding: 12px;
+    gap: 6px;
+  }
+  .h3-product-chrome > strong {
+    font-size: 13px;
+  }
+  .h3-product-org {
+    font-size: 11px;
+    max-width: 130px;
+    padding-left: 7px;
+    margin-left: 0;
+  }
+  .h3-product-chrome > a {
+    font-size: 11px;
+  }
+  .h3-product-main {
+    padding: 0 15px 16px;
+  }
+  .h3-product-tabs {
+    gap: 24px;
+    margin-bottom: 17px;
+  }
+  .h3-product-tabs > button {
+    font-size: 12px;
+    min-height: 42px;
+    padding-top: 13px;
+    padding-bottom: 11px;
+  }
+  .h3-preview-heading > div > span {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  .h3-preview-heading h3 {
+    font-size: 18px;
+    line-height: 1.45;
+    letter-spacing: -0.5px;
+  }
+  .h3-preview-metrics strong {
+    font-size: 25px;
+  }
+  .h3-preview-metrics span {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .h3-preview-section {
+    font-size: 12px;
+  }
+  .h3-preview-section > a {
+    font-size: 11px;
+  }
+  .h3-preview-row {
+    min-height: 64px;
+    padding: 12px 0;
+    gap: 9px;
+  }
+  .h3-preview-row strong {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .h3-preview-row > div > span {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .h3-row-status {
+    font-size: 11px;
+    padding: 4px 6px;
+    line-height: 1.5;
+  }
+  .h3-preview-activity > span {
+    font-size: 11px;
+  }
+  .h3-preview-activity p {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .h3-preview-inbox-row strong {
+    font-size: 12px;
+  }
+  .h3-preview-inbox-row p {
+    font-size: 12px;
+  }
+  .h3-preview-inbox-row > div > span {
+    font-size: 11px;
+  }
+  .h3-preview-helper {
+    font-size: 12px;
+  }
+  .h3-preview-search input {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .h3-preview-directory,
+  .h3-preview-local {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .h3-value-strip > span {
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+  }
+  .h3-value-strip > div {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .h3-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.7px;
+    line-height: 1.8;
+  }
+  .h3-network-title strong {
+    font-size: 15px;
+  }
+  .h3-network-title p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .h3-country-tabs button {
+    font-size: 12px;
+    min-height: 40px;
+    padding: 8px 11px;
+  }
+  .h3-company-tags > span {
+    font-size: 12px;
+  }
+  .h3-network-company > span {
+    font-size: 13px;
+  }
+  .h3-board-top > span {
+    font-size: 12px;
+    gap: 6px;
+  }
+  .h3-board-top > a {
+    font-size: 11px;
+    gap: 4px;
+  }
+  .h3-board-top > span > svg {
+    width: 16px;
+  }
+  .h3-planned strong {
+    font-size: 13px;
+  }
+  .h3-planned p > span {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+  .h3-planned > span {
+    font-size: 11px;
+  }
+  .h3-commercial-path > a > span:first-child {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .h3-path-link {
+    font-size: 13px;
+  }
+  .h3-pricing > article > span {
+    font-size: 11px;
+  }
+  .h3-price > span,
+  .h3-pricing > article > p {
+    font-size: 14px;
+  }
+  .h3-pricing li {
+    font-size: 15px;
+  }
+  .h3-disclosure p,
+  .h3-disclosure button {
+    font-size: 12px;
+  }
+  .home3-site footer,
+  .home3-site footer a {
+    font-size: 12px;
+  }
+  .h3-membership:before {
+    width: 110px;
+    height: 110px;
+    left: -65px;
+    top: 20px;
+  }
+  .h3-experience .h3-section:after {
+    width: 110px;
+    height: 110px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .h3-industrial img {
+    filter: none;
+  }
+  .home3-site .btn {
+    transition: none;
+  }
+  .home3-site .btn:hover {
+    transform: none;
+  }
+}
+/* Corrections from the first rendered review. */
+.app .daily-grid {
+  align-items: start;
+}
+.app .sidebar-bottom .plan-card {
+  display: block;
+}
+.app .sidebar-bottom .plan-card p {
+  margin: 0;
+  line-height: 1.8;
+}
+.app .sidebar-bottom .plan-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  white-space: nowrap;
+  line-height: 1.7;
+}
+.home3-site .h3-hero .h3-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.7px;
+  line-height: 1.8;
+  white-space: normal;
+}
+@media (min-width: 761px) {
+  .app.compact-sidebar .sidebar-bottom .plan-card {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .app .breadcrumb {
+    min-width: 0;
+    flex: 1;
+  }
+  .app .breadcrumb > span {
+    display: none;
+  }
+  .app .breadcrumb strong {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .app .top-actions {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  .app .topbar {
+    gap: 12px;
+  }
+}

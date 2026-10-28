@@ -1,0 +1,74 @@
+[
+  {
+    "route": "/",
+    "selector": ".h3-hero-copy>p",
+    "color": "rgb(64, 93, 112)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "18px",
+    "text": "Find suppliers and buyers, manage sourcing requests, and organize your seafood business in one connected workspace.",
+    "contrast": 6.96
+  },
+  {
+    "route": "/",
+    "selector": ".h3-preview-row strong",
+    "color": "rgb(38, 79, 102)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "13px",
+    "text": "Frozen Atlantic cod loins",
+    "contrast": 8.78
+  },
+  {
+    "route": "/",
+    "selector": ".h3-preview-row>div>span",
+    "color": "rgb(83, 110, 128)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "12px",
+    "text": "24,000 kg · Netherlands",
+    "contrast": 5.37
+  },
+  {
+    "route": "/app",
+    "selector": ".daily-metrics span",
+    "color": "rgb(81, 110, 129)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "12px",
+    "text": "Unread messages",
+    "contrast": 5.39
+  },
+  {
+    "route": "/app/discover",
+    "selector": ".company-description",
+    "color": "rgb(80, 108, 127)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "13px",
+    "text": "An independent seafood partner based in Poland specializing in atlantic salmon and herring. Supporting European foodservice, retail and industrial customers with traceable supply and flexible production.",
+    "contrast": 5.54
+  },
+  {
+    "route": "/app/inbox",
+    "selector": ".inbox-item-body p",
+    "color": "rgb(82, 111, 130)",
+    "background": "rgb(252, 254, 255)",
+    "fontSize": "12px",
+    "text": "Week 48 works. Please include the temperature records and carton specification with the quotation.",
+    "contrast": 5.25
+  },
+  {
+    "route": "/app/organization",
+    "selector": ".field>span",
+    "color": "rgb(62, 98, 122)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "13px",
+    "text": "Company name",
+    "contrast": 6.5
+  },
+  {
+    "route": "/app/rfqs",
+    "selector": "td small",
+    "color": "rgb(89, 116, 136)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "12px",
+    "text": "SL-2026-1042 · Atlantic cod",
+    "contrast": 4.91
+  }
+]

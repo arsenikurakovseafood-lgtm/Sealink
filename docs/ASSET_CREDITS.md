@@ -31,3 +31,7 @@ The existing licensed photographs remain unchanged. New blue/orange overlay trea
 Generation brief: an oblique intermodal container-terminal illustration with blue/coral corrugated containers, a white refrigerated container and cooling unit, clean concrete apron and distant gantry cranes. No text, logos, people, fishing vessels or software UI. The original output was 1536×1024 PNG. The checked-in asset is resized to 1400px and encoded as WebP quality 85; metadata is stripped. The original generated PNG remains in the execution workspace under `/workspace/generated_images/exec-91ec58d0-06b4-483c-a0b2-b9dcec96ad53.png`.
 
 The previous ocean, coastal, harbour and meeting-room images are retained with their original source credits but are no longer used on the homepage. The new homepage makes no claim of industrial photographic documentation. If documentary European-port or seafood-processing photography is required, replace this illustrative asset with a cleared, appropriately licensed photograph and update these credits.
+
+## SeaLink 3.0 final polish
+
+No new image or font asset is introduced. The existing generated container illustration receives CSS opacity, blur, masking and placement adjustments; its original asset and visible illustration disclosure remain. Existing font and photo licenses continue unchanged.
