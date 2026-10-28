@@ -53,3 +53,15 @@ New prices and tier benefits in `src/data/pricing.ts` are provisional, not final
 Public pages now use self-hosted Manrope with Instrument Serif editorial accents, a cinematic ocean hero, asymmetrical photographic panels, a fisheries-collaboration image section, refined membership hierarchy and reduced-motion-aware transitions. Operational business logic is unchanged. Four distinct photographs and two font subsets ship with the repository; no external image/font hosts or new environment variables are required. Sources, transformations and license notices are in [asset credits](docs/ASSET_CREDITS.md), with public attribution at `/credits`.
 
 The redesign is based on `feature/sealink-2` so the existing public site and all new operations workflows remain included. Review the full branch against main; do not merge automatically.
+
+## SeaLink 2.2 workspace
+
+- `/app`: daily overview with actionable local review records and state-derived metrics.
+- `/app/inbox`: internal category/search/unread filters and persistent read decisions.
+- `/app/organization`, `/app/team`, `/app/business`, `/app/communications`, `/app/company-preferences`: company profile and local business management.
+- `/app/orders`, `/app/shipments`: clearly labeled planning prototypes based on awarded RFQs and saved transport inquiries, with local notes.
+- `/app/network-overview`: the preserved discovery-focused dashboard.
+
+Sidebar groups and desktop compact mode persist separately from existing demonstration data. Mobile navigation includes focus containment and Escape dismissal. No external messaging integrations, team authorization, purchase orders or actual shipment tracking are implemented. No new dependencies, backend services or environment variables are required. Public photo treatments gain subtle orange accents while retaining documented licensed imagery; dedicated industrial replacement photography remains a sourcing follow-up.
+
+See [SeaLink 2.2 review and screenshots](docs/WORKSPACE_22_REVIEW.md) for the implemented workspace flows, validation evidence and known limits.

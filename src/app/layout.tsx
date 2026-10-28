@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./premium.css";
+import "./workspace.css";
 import { ExpansionProvider } from "@/features/expansion";
+import { WorkspaceProvider } from "@/features/workspace-state";
 import { DemoProvider } from "@/features/store";
 import { RouteShell } from "@/features/public";
 export const metadata: Metadata = {
@@ -15,7 +17,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <DemoProvider>
           <ExpansionProvider>
-            <RouteShell>{children}</RouteShell>
+            <WorkspaceProvider>
+              <RouteShell>{children}</RouteShell>
+            </WorkspaceProvider>
           </ExpansionProvider>
         </DemoProvider>
       </body>

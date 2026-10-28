@@ -1,17 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Waves,
-  LayoutDashboard,
   Search,
-  Building2,
-  FileText,
   Layers3,
-  Factory,
-  MessageSquare,
-  Settings,
   ChevronDown,
   ChevronsUpDown,
   ArrowUpRight,
@@ -25,37 +19,19 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/shared";
+import { SideNavigation, navigation } from "./workspace-nav";
+import { useWorkspace } from "@/features/workspace-state";
+import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { useDemo } from "@/features/store";
-const nav = [
-  ["Dashboard", "/app", "overview"],
-  ["Discover", "/app/discover", "network"],
-  ["Companies", "/app/companies", "network"],
-  ["RFQs", "/app/rfqs", "workspace"],
-  ["Offers", "/app/offers", "workspace"],
-  ["Capacity Exchange", "/app/capacity", "workspace"],
-  ["Messages", "/app/messages", "workspace"],
-  ["My Organization", "/app/organization", "manage"],
-  ["Settings", "/app/settings", "manage"],
-  ["Seafood marketplace", "/app/marketplace", "trade"],
-  ["Logistics", "/app/logistics", "operations"],
-  ["Jobs & Workforce", "/app/jobs", "people"],
-  ["Professional profile", "/app/profile", "people"],
-  ["Publish capacity", "/app/publish-capacity", "operations"],
-];
-const icons = [
-  LayoutDashboard,
-  Search,
-  Building2,
-  FileText,
-  Layers3,
-  Factory,
-  MessageSquare,
-  Building2,
-  Settings,
-];
 export function Shell({ children }: { children: React.ReactNode }) {
   const path = usePathname();
+  const { ui, setUI } = useWorkspace();
   const [professional, setProfessional] = useState(false);
+  useEffect(() => {
+    const reset = () => setProfessional(false);
+    window.addEventListener("sealink-reset", reset);
+    return () => window.removeEventListener("sealink-reset", reset);
+  }, []);
   const [membership, setMembership] = useState("Preview");
   useEffect(() => {
     const t = setTimeout(() => {
@@ -75,16 +51,64 @@ export function Shell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const { state, ready } = useDemo();
   const [mobile, setMobile] = useState(false);
+  const navigationRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (!mobile) return;
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusable = () =>
+      Array.from(
+        navigationRef.current?.querySelectorAll<HTMLElement>(
+          "a[href],button:not([disabled]),input,select",
+        ) || [],
+      ).filter((el) => el.getClientRects().length > 0);
+    focusable()[0]?.focus();
+    const handle = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobile(false);
+        return;
+      }
+      if (event.key === "Tab") {
+        const els = focusable();
+        const first = els[0],
+          last = els.at(-1);
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", handle);
+    return () => {
+      document.removeEventListener("keydown", handle);
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
+    };
+  }, [mobile]);
   const [menu, setMenu] = useState("");
   const [help, setHelp] = useState(false);
   const [query, setQuery] = useState("");
   const title =
-    nav.find(([, href]) =>
-      href === "/app" ? path === "/app" : path.startsWith(href),
-    )?.[0] || "Workspace";
+    navigation
+      .flatMap((g) => g.items)
+      .find(({ href }) =>
+        href === "/app" ? path === "/app" : path.startsWith(href),
+      )?.label || "Workspace";
   return (
-    <div className={state.preferences.compact ? "app compact" : "app"}>
-      <aside className={mobile ? "sidebar sidebar-open" : "sidebar"}>
+    <div
+      className={`${state.preferences.compact ? "app compact" : "app"} ${ui.compact ? "compact-sidebar" : ""}`}
+    >
+      <aside
+        ref={navigationRef}
+        role={mobile ? "dialog" : undefined}
+        aria-modal={mobile || undefined}
+        aria-label={mobile ? "Workspace navigation" : undefined}
+        className={mobile ? "sidebar sidebar-open" : "sidebar"}
+      >
         <Link href="/app" className="brand">
           <Waves size={31} strokeWidth={2.1} />
           <span>
@@ -112,52 +136,25 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <small>One organization in this preview.</small>
           </div>
         )}
-        <nav aria-label="Main navigation">
-          {nav.map(([label, href, group], i) => {
-            if (
-              professional &&
-              [
-                "RFQs",
-                "Offers",
-                "My Organization",
-                "Publish capacity",
-              ].includes(label)
-            )
-              return null;
-            const Icon = icons[i] || Factory;
-            return (
-              <div key={href}>
-                {(i === 1 || i === 3 || i === 7) && (
-                  <div className="nav-label">
-                    {group === "network"
-                      ? "NETWORK"
-                      : group === "workspace"
-                        ? "COMMERCIAL WORKSPACE"
-                        : "ORGANIZATION"}
-                  </div>
-                )}
-                <Link
-                  href={href}
-                  onClick={() => setMobile(false)}
-                  className={
-                    (href === "/app" ? path === "/app" : path.startsWith(href))
-                      ? "nav-item active"
-                      : "nav-item"
-                  }
-                >
-                  <Icon size={18} />
-                  <span>{label}</span>
-                  {label === "RFQs" && (
-                    <span className="nav-count">
-                      {state.rfqs.filter((r) => r.status === "Open").length}
-                    </span>
-                  )}
-                  {label === "Messages" && <span className="unread-dot" />}
-                </Link>
-              </div>
-            );
-          })}
-        </nav>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="sidebar-collapse"
+          aria-label={ui.compact ? "Expand sidebar" : "Collapse sidebar"}
+          aria-pressed={ui.compact}
+          onClick={() => setUI((v) => ({ ...v, compact: !v.compact }))}
+        >
+          {ui.compact ? (
+            <PanelLeftOpen size={17} />
+          ) : (
+            <PanelLeftClose size={17} />
+          )}
+        </Button>
+        <SideNavigation
+          path={path}
+          professional={professional}
+          onNavigate={() => setMobile(false)}
+        />
         <div className="sidebar-bottom">
           <div className="plan-card">
             <span className="plan-eyebrow">YOUR WORKSPACE</span>

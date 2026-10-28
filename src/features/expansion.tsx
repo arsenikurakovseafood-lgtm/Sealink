@@ -35,7 +35,7 @@ type Inquiry = {
   date: string;
   requirements: string;
 };
-type Extra = {
+export type Extra = {
   jobs: Job[];
   saved: string[];
   applications: Application[];
@@ -158,7 +158,12 @@ export function Expansion({ module }: { module: string }) {
   const [country, setCountry] = useState("");
   const [modal, setModal] = useState("");
   const [error, setError] = useState("");
-  const [tab, setTab] = useState("Browse");
+  const [tab, setTab] = useState(() =>
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).has("activity")
+      ? "My activity"
+      : "Browse",
+  );
   const title =
     module === "logistics"
       ? "Logistics network"

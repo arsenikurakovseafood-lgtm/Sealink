@@ -19,3 +19,7 @@ Unsplash/Pexels image endpoints returned HTTP 403 in this execution environment.
 - **Instrument Serif**, italic 400, Latin subset. Fontsource package `@fontsource/instrument-serif` 5.3.0. SIL Open Font License 1.1, license retained in `public/fonts/InstrumentSerif-LICENSE.txt`.
 
 Fonts are locally served WOFF2 with `font-display: swap`. No Google Fonts runtime request is used. The serif is an editorial accent only; operational screens use Manrope.
+
+## Workspace 2.2 visual treatment
+
+The existing licensed photographs remain unchanged. New blue/orange overlay treatments are implemented in workspace.css; no new industrial factory, port-container or cold-chain photographs were added. Dedicated industrial replacement imagery remains a source-content follow-up rather than an unlicensed substitution.

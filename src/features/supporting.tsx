@@ -357,7 +357,15 @@ export function CapacityExchange({ id }: { id?: string }) {
 }
 export function Messages() {
   const { state, update, notify } = useDemo();
-  const [selected, setSelected] = useState(state.messages[0]?.id || "");
+  const [selected, setSelected] = useState(() => {
+    const id =
+      typeof window !== "undefined"
+        ? new URLSearchParams(window.location.search).get("thread")
+        : null;
+    return id && state.messages.some((m) => m.id === id)
+      ? id
+      : state.messages[0]?.id || "";
+  });
   const [text, setText] = useState("");
   const [query, setQuery] = useState("");
   const current = state.messages.find((m) => m.id === selected);
