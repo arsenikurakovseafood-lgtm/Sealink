@@ -16,3 +16,11 @@ Company discovery combines exact structured filters with case-insensitive text l
 RFQ input uses React Hook Form and Zod. Matching checks listed species and certification claims; it explicitly leaves delivery, grade and volume unknown. Simulated quotations reference invited suppliers and RFQs. Comparison is same-RFQ only; a price ranking requires equal unit and currency. Different Incoterms are disclosed and no landed-cost equivalence is asserted.
 
 Future integrations should replace the state boundary with authorized server-side repositories and commands. Tenant IDs, permissions and secure storage must precede production data. Do not expose localStorage records as production entities without migration and access-control design.
+
+## SeaLink 2.0
+
+`/` is the public marketing homepage; `/join` and `/login` are explicit demonstration entry flows, not authentication. Existing trade screens now use `/app/*`; legacy paths redirect. `features/public.tsx` implements the public shell and onboarding. `data/pricing.ts` centralizes provisional monthly prices and benefits; no billing occurs.
+
+`features/expansion.tsx` owns local logistics, recruitment, professional profiles and capacity publishing. These records use `sealink-expansion-v1` independently of the unchanged v1 trade storage. The reset event clears both datasets and the local onboarding marker (`sealink-account`). Company IDs continue referencing the original 18 records. New capacity listings appear in Capacity Exchange. Applicant information appears only in the local employer review view; this is a single-browser demonstration, not authorization or tenant isolation.
+
+The premium visual layer lives in `src/app/premium.css`, imported after the base UI stylesheet. Local WebP photography is rendered with Next Image, including responsive sizes, lazy loading below the fold and a priority hero. Local WOFF2 typography uses font-display: swap. Sources and licenses are recorded in `docs/ASSET_CREDITS.md` and `/credits`. No real carrier availability, jobs or company verification is asserted.

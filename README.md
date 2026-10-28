@@ -41,3 +41,15 @@ See [Demo guide](docs/DEMO_GUIDE.md), [Architecture](docs/ARCHITECTURE.md), [Pro
 Start the app, then run `npm run test:e2e`. Install a Playwright browser with `npx playwright install chromium` first, or set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium` to use this cloud environment’s installed browser. The two tests exercise the connected sourcing flow, local persistence/reset, all primary routes and mobile navigation.
 
 `npm run build` and `npm run dev` use webpack for compatibility with cloud environments that restrict Turbopack worker sockets.
+
+## SeaLink 2.0
+
+Public pages: `/`, `/join`, `/login`. Workspace: `/app`, `/app/marketplace`, existing `/app/discover`, `/app/rfqs`, `/app/offers`, `/app/capacity`, plus `/app/logistics`, `/app/jobs`, `/app/profile`, `/app/publish-capacity`. Original company data and RFQ workflows remain. No additional environment variables or services are needed.
+
+New prices and tier benefits in `src/data/pricing.ts` are provisional, not finalized commercial policy. All new logistics, recruitment and publishing workflows are local-only demonstrations. The premium redesign replaces the illustration with locally served, licensed maritime photography; see docs/ASSET_CREDITS.md. No deployment is claimed by the source implementation.
+
+## Premium visual redesign
+
+Public pages now use self-hosted Manrope with Instrument Serif editorial accents, a cinematic ocean hero, asymmetrical photographic panels, a fisheries-collaboration image section, refined membership hierarchy and reduced-motion-aware transitions. Operational business logic is unchanged. Four distinct photographs and two font subsets ship with the repository; no external image/font hosts or new environment variables are required. Sources, transformations and license notices are in [asset credits](docs/ASSET_CREDITS.md), with public attribution at `/credits`.
+
+The redesign is based on `feature/sealink-2` so the existing public site and all new operations workflows remain included. Review the full branch against main; do not merge automatically.
