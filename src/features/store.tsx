@@ -66,6 +66,7 @@ export function DemoProvider({ children }: { children: React.ReactNode }) {
         ready,
         reset: () => {
           setState(createDemoState());
+          window.dispatchEvent(new Event("sealink-reset"));
           notify("Demonstration data reset.");
         },
       }}

@@ -1,4 +1,5 @@
 "use client";
+import { Marketplace, Expansion } from "./expansion";
 import { Dashboard } from "./dashboard";
 import { Discover, CompanyProfile } from "./network";
 import { RFQList, RFQForm, RFQDetail, Offers, OfferDetail } from "./commercial";
@@ -14,6 +15,9 @@ import Link from "next/link";
 export function Workspace({ route }: { route: string[] }) {
   const { state } = useDemo();
   const [page, id, action] = route;
+  if (["logistics", "jobs", "profile", "publish-capacity"].includes(page))
+    return <Expansion module={page} />;
+  if (page === "marketplace") return <Marketplace />;
   if (!page) return <Dashboard />;
   if (page === "discover") return <Discover />;
   if (page === "companies")
@@ -43,7 +47,7 @@ export function Workspace({ route }: { route: string[] }) {
       title="Page not found"
       description="Return to your commercial workspace."
     >
-      <Link href="/">Go to dashboard →</Link>
+      <Link href="/app">Go to dashboard →</Link>
     </Empty>
   );
 }

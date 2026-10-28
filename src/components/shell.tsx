@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Waves,
   LayoutDashboard,
@@ -27,15 +27,20 @@ import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/shared";
 import { useDemo } from "@/features/store";
 const nav = [
-  ["Dashboard", "/", "overview"],
-  ["Discover", "/discover", "network"],
-  ["Companies", "/companies", "network"],
-  ["RFQs", "/rfqs", "workspace"],
-  ["Offers", "/offers", "workspace"],
-  ["Capacity Exchange", "/capacity", "workspace"],
-  ["Messages", "/messages", "workspace"],
-  ["My Organization", "/organization", "manage"],
-  ["Settings", "/settings", "manage"],
+  ["Dashboard", "/app", "overview"],
+  ["Discover", "/app/discover", "network"],
+  ["Companies", "/app/companies", "network"],
+  ["RFQs", "/app/rfqs", "workspace"],
+  ["Offers", "/app/offers", "workspace"],
+  ["Capacity Exchange", "/app/capacity", "workspace"],
+  ["Messages", "/app/messages", "workspace"],
+  ["My Organization", "/app/organization", "manage"],
+  ["Settings", "/app/settings", "manage"],
+  ["Seafood marketplace", "/app/marketplace", "trade"],
+  ["Logistics", "/app/logistics", "operations"],
+  ["Jobs & Workforce", "/app/jobs", "people"],
+  ["Professional profile", "/app/profile", "people"],
+  ["Publish capacity", "/app/publish-capacity", "operations"],
 ];
 const icons = [
   LayoutDashboard,
@@ -50,6 +55,23 @@ const icons = [
 ];
 export function Shell({ children }: { children: React.ReactNode }) {
   const path = usePathname();
+  const [professional, setProfessional] = useState(false);
+  const [membership, setMembership] = useState("Preview");
+  useEffect(() => {
+    const t = setTimeout(() => {
+      try {
+        setMembership(
+          JSON.parse(localStorage.getItem("sealink-account") || "{}").plan ||
+            "Preview",
+        );
+        setProfessional(
+          JSON.parse(localStorage.getItem("sealink-account") || "{}")
+            .category === "Professional",
+        );
+      } catch {}
+    }, 0);
+    return () => clearTimeout(t);
+  }, []);
   const router = useRouter();
   const { state, ready } = useDemo();
   const [mobile, setMobile] = useState(false);
@@ -58,12 +80,12 @@ export function Shell({ children }: { children: React.ReactNode }) {
   const [query, setQuery] = useState("");
   const title =
     nav.find(([, href]) =>
-      href === "/" ? path === "/" : path.startsWith(href),
+      href === "/app" ? path === "/app" : path.startsWith(href),
     )?.[0] || "Workspace";
   return (
     <div className={state.preferences.compact ? "app compact" : "app"}>
       <aside className={mobile ? "sidebar sidebar-open" : "sidebar"}>
-        <Link href="/" className="brand">
+        <Link href="/app" className="brand">
           <Waves size={31} strokeWidth={2.1} />
           <span>
             SeaLink<span className="brand-dot">.</span>
@@ -83,7 +105,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
         {menu === "org" && (
           <div className="sidebar-pop">
             <p>Demo organization</p>
-            <Link href="/organization" onClick={() => setMenu("")}>
+            <Link href="/app/organization" onClick={() => setMenu("")}>
               Manage {state.organization.name}
               <ArrowUpRight size={14} />
             </Link>
@@ -92,7 +114,17 @@ export function Shell({ children }: { children: React.ReactNode }) {
         )}
         <nav aria-label="Main navigation">
           {nav.map(([label, href, group], i) => {
-            const Icon = icons[i];
+            if (
+              professional &&
+              [
+                "RFQs",
+                "Offers",
+                "My Organization",
+                "Publish capacity",
+              ].includes(label)
+            )
+              return null;
+            const Icon = icons[i] || Factory;
             return (
               <div key={href}>
                 {(i === 1 || i === 3 || i === 7) && (
@@ -108,7 +140,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   href={href}
                   onClick={() => setMobile(false)}
                   className={
-                    (href === "/" ? path === "/" : path.startsWith(href))
+                    (href === "/app" ? path === "/app" : path.startsWith(href))
                       ? "nav-item active"
                       : "nav-item"
                   }
@@ -133,8 +165,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
               Built for better connections
               <ArrowUpRight size={15} />
             </strong>
-            <p>Professional plan · Preview</p>
-            <Link href="/settings">
+            <p>{membership} membership · Demo</p>
+            <Link href="/app/settings">
               View subscription <span>→</span>
             </Link>
           </div>
@@ -156,7 +188,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           </button>
           {menu === "user" && (
             <div className="sidebar-pop">
-              <Link href="/settings" onClick={() => setMenu("")}>
+              <Link href="/app/settings" onClick={() => setMenu("")}>
                 User preferences
               </Link>
               <small>Local demonstration identity. No authentication.</small>
@@ -191,7 +223,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             className="global-search"
             onSubmit={(e) => {
               e.preventDefault();
-              router.push(`/discover?q=${encodeURIComponent(query)}`);
+              router.push(`/app/discover?q=${encodeURIComponent(query)}`);
             }}
           >
             <Search size={15} />
@@ -233,7 +265,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                     {e}
                   </p>
                 ))}
-              <Link href="/rfqs" onClick={() => setMenu("")}>
+              <Link href="/app/rfqs" onClick={() => setMenu("")}>
                 View RFQs →
               </Link>
             </div>
@@ -247,6 +279,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           )}
         </main>
         <footer>
+          <Link href="/">Public website</Link>
           SeaLink Preview{" "}
           <span>
             All companies and commercial activity are fictional. No external

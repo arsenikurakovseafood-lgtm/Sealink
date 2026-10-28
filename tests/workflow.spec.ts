@@ -4,12 +4,12 @@ test("complete connected sourcing workflow, persistence and reset", async ({
 }) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("/");
+  await page.goto("/app");
   await expect(
     page.getByRole("heading", { name: "Welcome to SeaLink." }),
   ).toBeVisible();
   await page.screenshot({ path: "/tmp/sealink-dashboard.png", fullPage: true });
-  await page.goto("/discover");
+  await page.goto("/app/discover");
   await page
     .getByRole("combobox", { name: "Country", exact: true })
     .selectOption("Netherlands");
@@ -89,7 +89,7 @@ test("complete connected sourcing workflow, persistence and reset", async ({
     .click();
   await page.getByRole("button", { name: "Confirm simulated award" }).click();
   await expect(page.locator(".page-heading")).toContainText("Accepted");
-  await page.goto("/organization");
+  await page.goto("/app/organization");
   await page
     .getByLabel("Company name", { exact: true })
     .fill("Demo Northwater Updated");
@@ -98,13 +98,13 @@ test("complete connected sourcing workflow, persistence and reset", async ({
   await expect(page.locator(".org-switch")).toContainText(
     "Demo Northwater Updated",
   );
-  await page.goto("/capacity/cap-1");
+  await page.goto("/app/capacity/cap-1");
   await page.getByRole("button", { name: "Simulate inquiry" }).click();
   await page
     .getByLabel("Production requirements")
     .fill("Fictional 20 tonne filleting inquiry for November.");
   await page.getByRole("button", { name: "Save simulated inquiry" }).click();
-  await page.goto("/messages");
+  await page.goto("/app/messages");
   await page.getByRole("button", { name: /Demo capacity inquiry/ }).click();
   await expect(page.locator(".thread")).toContainText("Fictional 20 tonne");
   await page.getByLabel("Write a demo message").fill("Local follow-up only.");
@@ -112,7 +112,7 @@ test("complete connected sourcing workflow, persistence and reset", async ({
   await page.reload();
   await page.getByRole("button", { name: /Demo capacity inquiry/ }).click();
   await expect(page.locator(".thread")).toContainText("Local follow-up only.");
-  await page.goto("/settings");
+  await page.goto("/app/settings");
   await page.getByRole("button", { name: "Demo data", exact: true }).click();
   await page
     .getByRole("button", { name: "Reset demo data", exact: true })
@@ -122,27 +122,27 @@ test("complete connected sourcing workflow, persistence and reset", async ({
     .getByRole("button", { name: "Reset demo data", exact: true })
     .click();
   await expect(page.locator(".org-switch")).toContainText("Northwater Seafood");
-  await page.goto("/rfqs");
+  await page.goto("/app/rfqs");
   await expect(page.locator("tbody tr")).toHaveCount(8);
   expect(errors).toEqual([]);
 });
 test("navigation and mobile layout", async ({ page }) => {
   for (const route of [
-    "/",
-    "/discover",
-    "/companies",
-    "/rfqs",
-    "/offers",
-    "/capacity",
-    "/messages",
-    "/organization",
-    "/settings",
+    "/app",
+    "/app/discover",
+    "/app/companies",
+    "/app/rfqs",
+    "/app/offers",
+    "/app/capacity",
+    "/app/messages",
+    "/app/organization",
+    "/app/settings",
   ]) {
     await page.goto(route);
     await expect(page.locator("main h1")).toBeVisible();
   }
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
+  await page.goto("/app");
   await expect(
     page.getByRole("button", { name: "Open navigation" }),
   ).toBeVisible();
